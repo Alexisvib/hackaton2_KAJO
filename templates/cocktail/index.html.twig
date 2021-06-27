@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cocktail Generator !{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('cocktail') }}
+{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Ici on boit des cocktails ! </h1>
+
+    <button type="button" class="btn btn-dark" id="button-cocktail">GENERER COCKTAIL</button>
+    <h2 id="title">Nom du cocktail : </h2>
+    <h3>Instructions : </h3>
+    <p id="instruction"></p>
+</div>
+{% endblock %}
+
