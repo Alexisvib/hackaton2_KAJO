@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cocktail Generator !{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('advice') }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+        <h1>Le hackaton est trop compliqué pour toi, prends un conseil ! </h1>
+
+        <button type="button" class="btn btn-dark" id="button-advice">GENERER conseil</button>
+        <br><br>
+        <h2 id="advice"></h2>
+    </div>
+{% endblock %}
+
