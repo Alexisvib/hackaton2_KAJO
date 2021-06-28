@@ -3,10 +3,9 @@
 
 namespace App\DataFixtures;
 
-
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\Security\Core\User\User;
 
 class UserFixtures extends Fixture
 {
@@ -23,7 +22,7 @@ class UserFixtures extends Fixture
         'Alexis',
         'Solène',
         'Marie',
-        'Justine',
+        'Julie',
         'Margaux',
         'Jeanette',
         'Sophie',
@@ -49,7 +48,7 @@ class UserFixtures extends Fixture
         'roche',
         'labussière',
         'bennaby',
-        'benmoufok',
+        'paillard',
         'azou',
         'degorges',
         'desgranges',
@@ -61,12 +60,31 @@ class UserFixtures extends Fixture
         'ajana',
         'sansone',
     ];
-    
+
     public function load(ObjectManager $manager)
     {
-        $user = new User();
-        $user->setFirstname()
-        $manager ->persist($user);
+
+        for ($i = 0; $i < count(self::FIRSTNAME); $i++) {
+            $user = new User();
+            $user->setFirstname(self::FIRSTNAME[$i]);
+            $user->setLastname(self::LASTNAME[$i]);
+            $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+            $user->setPassword($user->getFirstname() . $user->getLastname() );
+            $user->setPhoto($user->getFirstname() . ".png");
+            if($i < 7 ) {
+                $user->setOnFiverr(true);
+                $user->setOnLinkedIn(false);
+            }
+            if($i >= 7 && $i < 14) {
+                $user->setOnFiverr(false);
+                $user->setOnLinkedIn(true);
+            } else {
+                $user->setOnFiverr(true);
+                $user->setOnLinkedIn(true);
+            }
+            $manager ->persist($user);
+        }
+
         $manager->flush();
     }
 }

@@ -21,7 +21,7 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @ORM\Column(type="string", length=180, unique=true ,nullable=true)
      */
     private $email;
 
@@ -69,17 +69,17 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="boolean")
      */
-    private $onLinkedIn;
+    private $onLinkedIn ;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $photo;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $astroSign;
+//
+//    /**
+//     * @ORM\Column(type="string", length=255)
+//     */
+//    private $astroSign;
 
     public function __construct()
     {
@@ -300,16 +300,16 @@ class User implements UserInterface
 
         return $this;
     }
-
-    public function getAstroSign(): ?string
-    {
-        return $this->astroSign;
-    }
-
-    public function setAstroSign(string $astroSign): self
-    {
-        $this->astroSign = $astroSign;
-
-        return $this;
-    }
+//
+//    public function getAstroSign(): ?string
+//    {
+//        return $this->astroSign;
+//    }
+//
+//    public function setAstroSign(string $astroSign): self
+//    {
+//        $this->astroSign = $astroSign;
+//
+//        return $this;
+//    }
 }
