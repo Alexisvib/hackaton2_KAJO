@@ -74,8 +74,7 @@ class UserFixtures extends Fixture
             if($i < 7 ) {
                 $user->setOnFiverr(true);
                 $user->setOnLinkedIn(false);
-            }
-            if($i >= 7 && $i < 14) {
+            } elseif ($i >= 7 && $i < 14) {
                 $user->setOnFiverr(false);
                 $user->setOnLinkedIn(true);
             } else {
