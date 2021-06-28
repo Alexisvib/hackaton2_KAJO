@@ -79,8 +79,8 @@ class User implements UserInterface
     private $photo;
 
     /**
-    * @ORM\Column(type="string", length=255)
-    */
+     * @ORM\Column(type="string", length=255)
+     */
     private $astroSign;
 
     public function __construct()
