@@ -77,11 +77,11 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $photo;
-//
-//    /**
-//     * @ORM\Column(type="string", length=255)
-//     */
-//    private $astroSign;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $astroSign;
 
     public function __construct()
     {
@@ -302,16 +302,16 @@ class User implements UserInterface
 
         return $this;
     }
-//
-//    public function getAstroSign(): ?string
-//    {
-//        return $this->astroSign;
-//    }
-//
-//    public function setAstroSign(string $astroSign): self
-//    {
-//        $this->astroSign = $astroSign;
-//
-//        return $this;
-//    }
+
+    public function getAstroSign(): ?string
+    {
+        return $this->astroSign;
+    }
+
+    public function setAstroSign(string $astroSign): self
+    {
+        $this->astroSign = $astroSign;
+
+        return $this;
+    }
 }

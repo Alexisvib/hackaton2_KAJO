@@ -71,6 +71,7 @@ class UserFixtures extends Fixture
             $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
             $user->setPassword($user->getFirstname() . $user->getLastname() );
             $user->setPhoto($user->getFirstname() . ".png");
+            $user->setAstroSign('Cancer');
             if($i < 7 ) {
                 $user->setOnFiverr(true);
                 $user->setOnLinkedIn(false);
@@ -82,6 +83,7 @@ class UserFixtures extends Fixture
                 $user->setOnLinkedIn(true);
             }
             $manager ->persist($user);
+            $this->setReference('user_' . $i, $user);
         }
 
         $manager->flush();
