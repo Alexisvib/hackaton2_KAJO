@@ -5,13 +5,14 @@ namespace App\DataFixtures;
 
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
 class UserFixtures extends Fixture
 {
     public const FIRSTNAME = [
-        'François',
-        'Marlène',
+        'Francois',
+        'Marlene',
         'Eric',
         'Lionel',
         'Arthur',
@@ -20,7 +21,7 @@ class UserFixtures extends Fixture
         'Killian',
         'Olivier',
         'Alexis',
-        'Solène',
+        'Solene',
         'Marie',
         'Julie',
         'Margaux',
@@ -61,8 +62,25 @@ class UserFixtures extends Fixture
         'sansone',
     ];
 
+    public const ASTRO_SIGN = [
+        'Aries',
+        'Taurus',
+        'Gemini',
+        'Cancer',
+        'Leo',
+        'Virgo',
+        'Libra',
+        'Scorpio',
+        'Sagittarius',
+        'Capricorn',
+        'Aquarius',
+        'Pisces',
+    ];
+
     public function load(ObjectManager $manager)
     {
+
+        $users = [];
 
         for ($i = 0; $i < count(self::FIRSTNAME); $i++) {
             $user = new User();
@@ -81,9 +99,14 @@ class UserFixtures extends Fixture
                 $user->setOnFiverr(true);
                 $user->setOnLinkedIn(true);
             }
+            $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+            $this->addReference('user_' . $i, $user);
+            $users[] = $user;
             $manager ->persist($user);
         }
 
         $manager->flush();
     }
 }
+
+
