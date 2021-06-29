@@ -10,23 +10,6 @@
 {% block body %}
 
 
-<div class="modules-block d-flex align-items-center">
-    <div class="left-module" style="height: 300px;width: 300px;background-color: #0d5e42"></div>
-    <div style="height: 300px;width: 500px;"></div>
-    <div class="d-flex flex-column">
-        {% for i in 1..4 %}
-            <div class="d-flex link-block">
-                <div class="d-flex flex-column">
-                    <div class="link-up" data-isLightening="{{ i }}"></div>
-                    <div class="link-down" data-isLightening="{{ i }}"></div>
-                </div>
-                <div class="right-module" data-isLightening="{{ i }}" style="height: 200px;width: 200px;background-color: aquamarine"></div>
-            </div>
-        {% endfor %}
-    </div>
-</div>
-
-
 {{ dump(rocket) }}
 {{ dump(app.user.friends) }}
 <div class="row m-2 ">
@@ -36,6 +19,7 @@
                 <div class="module-container">
                         <img  id="test{{ random(2) }}" class="passenger-photo" src="{{ asset('build/' ~ app.user.photo ) }}" alt="">
                         <img  src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
+                    <div class="delete" style="color:red">X </div>
                     <div class="d-flex flex-column dot-container">
                         <span class= "dot" ></span>
                         <span class= "dot" ></span>
@@ -46,6 +30,7 @@
             {% for skill in rocket.skills|slice(1,rocket.skills|length) %}
                 <div class="module-container">
                         <img  src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
+                    <div class="delete" style="color:red">X </div>
                     <div class="d-flex flex-column dot-container">
                         <span class="dot {{ (skill.status == 0) ? "dot-" ~ skill.status: ""}}"></span>
                         <span class="dot {{ (skill.status == 1) ? "dot-" ~ skill.status: ""}}"></span>
@@ -57,5 +42,38 @@
             <img src="{{ asset('build/rocket/tailRocket.png') }}"width="150px"  alt="pas trouve">
         </div>
     </div>
+    <div class="col col-5">
+        <div class="modules-block d-flex align-items-center">
+            <div class="left-module" style="height: 300px;width: 0px;background-color: #0d5e42"></div>
+            <div style="height: 300px;width: 500px;"></div>
+            <div class="d-flex flex-column">
+                {% for friend in app.user.friends  %}
+                    <div class="d-flex link-block">
+                        <div class="d-flex flex-column">
+                            <div class="link-up" data-isLightening="{{ loop.index }}"></div>
+                            <div class="link-down" data-isLightening="{{ loop.index }}"></div>
+                        </div>
+                        <div class="right-module" data-isLightening="{{ loop.index }}" style="height: 200px;width: 200px;">
+                            {{ friend.firstname }} {{ friend.lastname }}
+                            <img src="{{ asset('build/'~friend.photo) }}" width="100px" alt="">
+                            <p>
+                                {% if friend.onFiverr %}
+                                    <img src="{{ asset('build/Logos/fiverr.png') }}" width="40px" alt="">
+                                {% endif %}
+                                {% if friend.onLinkedin %}
+                                    <img src="{{ asset('build/Logos/linkedin.png') }}" width="40px" alt="">
+                                {% endif %}
+                            </p>
+                            {{ friend.skills[0].name }}
+                            <p>
+                                <a class="btn btn-primary" href="">Inviter</a>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
 </div>
 {% endblock %}

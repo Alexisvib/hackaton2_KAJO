@@ -1,3 +1,5 @@
+
+
 $linkNotLight : white;
 
 .modules-block:hover .left-module::after {
@@ -37,6 +39,7 @@ $linkNotLight : white;
 
 .left-module {
   position: relative;
+  width: 0;
 }
 
 .left-module::after {
@@ -81,4 +84,14 @@ $linkNotLight : white;
   height: 2px;
   left: -215px;
   top: 50%;
+}
+
+.delete{
+  position: absolute;
+  top: 0;
+  left: 0px;
+}
+.delete:hover{
+  cursor:pointer;
+
 }
