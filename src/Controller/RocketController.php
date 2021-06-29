@@ -60,17 +60,23 @@ class RocketController extends AbstractController
         $markets1[] = $userRepository->findOneBy(['firstname'=>'Samantha','lastname'=>'Martine']);
         $markets1[] = $userRepository->findOneBy(['firstname'=>'Nabilla','lastname'=>'Laroche']);
         $markets1[] = $userRepository->findOneBy(['firstname'=>'Umar','lastname'=>'Ganesh']);
-        $markets2[] = $userRepository->findOneBy(['firstname'=>'Fabrice','lastname'=>'Morgane']);
+        $markets2[] = $userRepository->findOneBy(['firstname'=>'Fabrice','lastname'=>'Morgan']);
         $markets2[] = $userRepository->findOneBy(['firstname'=>'Patrick','lastname'=>'Martin']);
         $markets2[] = $userRepository->findOneBy(['firstname'=>'Mylene','lastname'=>'Fermier']);
         $markets2[] = $userRepository->findOneBy(['firstname'=>'Thomas','lastname'=>'Lancien']);
         $markets2[] = $userRepository->findOneBy(['firstname'=>'Veronica','lastname'=>'Bank']);
         $SEO1[] = $userRepository->findOneBy(['firstname'=>'Geraldine','lastname'=>'Korinthe']);
         $SEO2[] = $userRepository->findOneBy(['firstname'=>'Charlotte','lastname'=>'Siemens']);
-        $SEO2[] = $userRepository->findOneBy(['firstname'=>'Robin','lastname'=>'Despre']);
-        dd($devs2);
+        $SEO2[] = $userRepository->findOneBy(['firstname'=>'Robin','lastname'=>'Despres']);
+
         return $this->render('rocket/builder.html.twig', [
-           'rocket' => $rocket,
+           'dev1' => $devs1,
+           'dev2' => $devs2,
+            'market1' => $markets1,
+            'market2' => $markets2,
+            'SEO1'=>$SEO1,
+            'SEO2'=>$SEO2,
+            'rocket'=>$rocket
         ]);
     }
 }

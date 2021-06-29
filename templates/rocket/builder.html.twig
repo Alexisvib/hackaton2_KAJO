@@ -28,7 +28,6 @@
 
 
 
-{{ dump(rocket.appliants[0]) }}
 {#{{ dump(app.user.friends) }}#}
 <div class="row m-2 ">
     <div class="col col-2 ">
@@ -61,12 +60,14 @@
             <img src="{{ asset('build/rocket/tailRocket.png') }}"width="150px"  alt="pas trouve">
         </div>
     </div>
-    <div class="col col-5">
+{#    dev1 #}
+    <div class="col col-5 dev d-none">
+        <div class="offset" style="height: 100px"></div>
         <div class="modules-block d-flex align-items-center">
-            <div class="left-module" style="height: 300px;width: 0px;background-color: #0d5e42"></div>
+            <div class="left-module" style="height: 200px;width: 0px;background-color: #0d5e42"></div>
             <div style="height: 300px;width: 500px;"></div>
             <div class="d-flex flex-column">
-                {% for friend in app.user.friends |slice(0,3) %}
+                {% for friend in dev1 |slice(0,3) %}
                     <div class="d-flex link-block">
                         <div class="d-flex flex-column">
                             <div class="link-up" data-isLightening="{{ loop.index }}"></div>
@@ -83,6 +84,84 @@
                                     <img class="linkImage" src="{{ asset('build/Logos/linkedin.png') }}" width="50px" alt="">
                                 {% endif %}
                             </p>
+                            </div>
+                            <div>
+                                <p>{{ friend.firstname }} {{ friend.lastname }}</p>
+
+                                {{ friend.skills[0].name }}
+                                <p>
+                                    <a class="btn btn-primary" href="">Inviter</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{#    Marketing1#}
+    <div class="col col-5 market d-none">
+        <div class="offset" style="height: 250px"></div>
+        <div class="modules-block d-flex align-items-center">
+            <div class="left-module" style="height: 200px;width: 0px;background-color: #0d5e42"></div>
+            <div style="height: 300px;width: 500px;"></div>
+            <div class="d-flex flex-column">
+                {% for friend in market1 |slice(0,3) %}
+                    <div class="d-flex link-block">
+                        <div class="d-flex flex-column">
+                            <div class="link-up" data-isLightening="{{ loop.index }}"></div>
+                            <div class="link-down" data-isLightening="{{ loop.index }}"></div>
+                        </div>
+                        <div class="right-module d-flex" data-isLightening="{{ loop.index }}" style="height: 200px;width: 200px;">
+                            <div>
+                                <img src="{{ asset('build/'~friend.photo) }}" width="100px" alt="">
+                                <p class="d-flex">
+                                    {% if friend.onFiverr %}
+                                        <img class="fiverrImage" src="{{ asset('build/Logos/fiverr.png') }}" width="50px" alt="">
+                                    {% endif %}
+                                    {% if friend.onLinkedin %}
+                                        <img class="linkImage" src="{{ asset('build/Logos/linkedin.png') }}" width="50px" alt="">
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <div>
+                                <p>{{ friend.firstname }} {{ friend.lastname }}</p>
+
+                                {{ friend.skills[0].name }}
+                                <p>
+                                    <a class="btn btn-primary" href="">Inviter</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{#    SEO#}
+    <div class="col col-5 seo">
+        <div class="offset" style="height: 550px"></div>
+        <div class="modules-block d-flex align-items-center">
+            <div class="left-module" style="height: 200px;width: 0px;background-color: #0d5e42"></div>
+            <div style="height: 300px;width: 500px;"></div>
+            <div class="d-flex flex-column">
+                {% for friend in SEO1 |slice(0,3) %}
+                    <div class="d-flex link-block">
+                        <div class="d-flex flex-column">
+                            <div class="link-up" data-isLightening="{{ loop.index }}"></div>
+                            <div class="link-down" data-isLightening="{{ loop.index }}"></div>
+                        </div>
+                        <div class="right-module d-flex" data-isLightening="{{ loop.index }}" style="height: 200px;width: 200px;">
+                            <div>
+                                <img src="{{ asset('build/'~friend.photo) }}" width="100px" alt="">
+                                <p class="d-flex">
+                                    {% if friend.onFiverr %}
+                                        <img class="fiverrImage" src="{{ asset('build/Logos/fiverr.png') }}" width="50px" alt="">
+                                    {% endif %}
+                                    {% if friend.onLinkedin %}
+                                        <img class="linkImage" src="{{ asset('build/Logos/linkedin.png') }}" width="50px" alt="">
+                                    {% endif %}
+                                </p>
                             </div>
                             <div>
                                 <p>{{ friend.firstname }} {{ friend.lastname }}</p>
