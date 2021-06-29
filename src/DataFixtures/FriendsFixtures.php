@@ -48,7 +48,7 @@ class FriendsFixtures extends Fixture implements DependentFixtureInterface
         //Geraldine Korinthe est Podacast editing et a 2 amis SEO Charlotte Siemens // Robin Despre
         $this->getReference('user_40')->addFriend($this->getReference('user_39'));
         $this->getReference('user_40')->addFriend($this->getReference('user_41'));
-        
+
         $manager->flush();
     }
 

@@ -324,7 +324,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user = new User();
         $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
         $user->setFirstname('Mylene');
-        $user->setLastname('Farmer');
+        $user->setLastname('Fermier');
         $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
         $plainPassword = 'azerty';
         $encoded = $this->encoder->encodePassword($user, $plainPassword);
