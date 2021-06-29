@@ -3,11 +3,6 @@
 {% block title %}Build your team work !{% endblock %}
 
 {% block body %}
-{% for skill in rocket.skills %}
-    <div>{{ skill.name }}</div>
-    {% for friend in app.user.friends %}
-        {{ friend.firstname }}
-        {{ friend.skill }}
-    {% endfor %}
-{% endfor %}
+    {{ dump(rocket) }}
+    {{ dump(app.user.friends) }}
 {% endblock %}
