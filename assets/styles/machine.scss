@@ -1,113 +1,71 @@
-body {
-  margin:0;
-  background-color:#ffffff;
-  overflow:hidden;
+.xavier {
+    height:80px;
 }
-#main {
-  position:relative;
-  margin:auto;
-  width:360px;
-  height:460px;
+
+.magnet {
+    width: 200px;
 }
-#toys {
-  position:absolute;
-  top:210px;
-  left:102px;
-  width:231px;
-  height:121px;
-  background-image:url(https://image.ibb.co/i7YAJz/toysBG.png);
+
+.basket{
+    width:600px;
 }
-.toy {
-  position:absolute;
-  top:30px;
-  left:30px;
-  width:50px;
-  height:50px;
-  background-image:url(https://image.ibb.co/n8g2WK/toys.png);
-  background-size:350px 350px;
-  background-position:0 0;
+
+
+.xavier{
+    position: relative;
+    top: 190px;
+    left: 600px;
+    z-index: -2;
 }
-#moveContainer {
-  position:absolute;
-  top:343px;
-  left:102px;
-  width:231px;
-  height:36px;
-  background:#434242;
-  border:2px solid #898989;
-  border-radius:20px;
+
+.shaky{
+    animation: swing; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s; /* don't forget to set a duration! */
+    animation-iteration-count: infinite;
 }
-#moveControl {
-  position:absolute;
-  top:-2px;
-  left:-2px;
-  width:36px;
-  height:36px;
-  background:#303030;
-  border:2px solid #898989;
-  border-radius:50%;
-  cursor:pointer;
+
+.xavier-magnet{
+    animation-name:slideTop;
+    animation-timing-function: cubic-bezier(.07,.81,1,-0.86);
+    animation-duration:1s;
+    animation-fill-mode: forwards;
 }
-#claw {
-  position:absolute;
-  top:65px;
-  left:30px;
-  width:60px;
-  height:260px;
+
+
+@keyframes slideTop {
+    0% {
+        transform: translate(0%, +0%);
+    }
+    100% {
+        transform: translate(0%, -300%);
+    }
 }
-#clawBar {
-  position:absolute;
-  top:20px;
-  left:27px;
-  width:6px;
-  height:15px;
-  background:#5b5b5b;
+
+
+
+
+
+.swing {
+    transform-origin: top center;
+    animation-name: swing;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
 }
-#clawALL {
-  position:absolute;
-  top:0;
-  left:0;
-  width:60px;
-}
-#clawBall {
-  position:absolute;
-  top:31px;
-  left:21px;
-  width:6px;
-  height:6px;
-  border:6px solid #5b5b5b;
-  border-radius:50%;
-}
-#leftClaw {
-  position:absolute;
-  top:36px;
-  left:3px;
-  width:16px;
-  height:25px;
-  border-top:8px solid #5b5b5b;
-  border-left:4px solid #5b5b5b;
-  transform-origin: top right;
-  transform: rotate(-30deg);
-}
-#rightClaw {
-  position:absolute;
-  top:36px;
-  right:3px;
-  width:16px;
-  height:25px;
-  border-top:8px solid #5b5b5b;
-  border-right:4px solid #5b5b5b;
-  transform-origin: top left;
-  transform: rotate(30deg);
-}
-#clawOpen {
-  transform: rotate(0deg);
-}
-@-webkit-keyframes fullsize {
-  from {
-    transform:scale(1) translate(0,0)
-  }
-  to {
-    transform:scale(4) translate(30px,-30px)
-  }
+
+@keyframes swing {
+    20% {
+        transform: rotate3d(0, 0, 1, 8deg);
+    }
+    40% {
+        transform: rotate3d(0, 0, 1, -4deg);
+    }
+    60% {
+        transform: rotate3d(0, 0, 1, 5deg);
+    }
+    80% {
+        transform: rotate3d(0, 0, 1, -3deg);
+    }
+    100% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
 }

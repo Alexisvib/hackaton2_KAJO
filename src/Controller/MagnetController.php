@@ -14,9 +14,9 @@ class MagnetController extends AbstractController
      */
     public function index(UserRepository $userRepository): Response
     {
-        $users = $userRepository->findAll();
+        $xavier = $userRepository->findOneBy(['firstname' => 'Xavier']);
         return $this->render('magnet/index.html.twig', [
-            'users' => $users,
+            'xavier' => $xavier,
         ]);
     }
 }
