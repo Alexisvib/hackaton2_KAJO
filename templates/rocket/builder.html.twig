@@ -2,6 +2,11 @@
 
 {% block title %}Build your team work !{% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('linkModules') }}
+{% endblock %}
+
 {% block body %}
 <div class="modules-block d-flex align-items-center">
     <div class="left-module" style="height: 300px;width: 300px;background-color: #0d5e42"></div>
