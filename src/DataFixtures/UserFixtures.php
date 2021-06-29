@@ -166,7 +166,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setPhoto($user->getFirstname() . ".png");
         $user->setOnFiverr(true);
         $user->setOnLinkedIn(true);
-        $user->addSkill($this->getReference('skill_1'));
+        $user->addSkill($this->getReference('skill_2'));
         $manager ->persist($user);
         $this->addReference('user_23', $user);
 
@@ -197,7 +197,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setPhoto($user->getFirstname() . ".png");
         $user->setOnFiverr(false);
         $user->setOnLinkedIn(true);
-        $user->addSkill($this->getReference('skill_4'));
+        $user->addSkill($this->getReference('skill_1'));
         $manager ->persist($user);
         $this->addReference('user_25', $user);
 
@@ -227,7 +227,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setPhoto($user->getFirstname() . ".png");
         $user->setOnFiverr(true);
         $user->setOnLinkedIn(false);
-        $user->addSkill($this->getReference('skill_2'));
+        $user->addSkill($this->getReference('skill_1'));
         $manager ->persist($user);
         $this->addReference('user_27', $user);
 
@@ -242,7 +242,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setPhoto($user->getFirstname() . ".png");
         $user->setOnFiverr(true);
         $user->setOnLinkedIn(true);
-        $user->addSkill($this->getReference('skill_2'));
+        $user->addSkill($this->getReference('skill_1'));
         $manager ->persist($user);
         $this->addReference('user_28', $user);
 
@@ -272,7 +272,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setPhoto($user->getFirstname() . ".png");
         $user->setOnFiverr(false);
         $user->setOnLinkedIn(true);
-        $user->addSkill($this->getReference('skill_5'));
+        $user->addSkill($this->getReference('skill_1'));
         $manager ->persist($user);
         $this->addReference('user_30', $user);
 
@@ -287,7 +287,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setPhoto($user->getFirstname() . ".png");
         $user->setOnFiverr(false);
         $user->setOnLinkedIn(true);
-        $user->addSkill($this->getReference('skill_3'));
+        $user->addSkill($this->getReference('skill_1'));
         $manager ->persist($user);
         $this->addReference('user_31', $user);
 
@@ -302,7 +302,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setPhoto($user->getFirstname() . ".png");
         $user->setOnFiverr(false);
         $user->setOnLinkedIn(true);
-        $user->addSkill($this->getReference('skill_3'));
+        $user->addSkill($this->getReference('skill_1'));
         $manager ->persist($user);
         $this->addReference('user_32', $user);
 
@@ -317,7 +317,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setPhoto($user->getFirstname() . ".png");
         $user->setOnFiverr(true);
         $user->setOnLinkedIn(true);
-        $user->addSkill($this->getReference('skill_6'));
+        $user->addSkill($this->getReference('skill_2'));
         $manager ->persist($user);
         $this->addReference('user_33', $user);
 
@@ -332,7 +332,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setPhoto($user->getFirstname() . ".png");
         $user->setOnFiverr(true);
         $user->setOnLinkedIn(true);
-        $user->addSkill($this->getReference('skill_6'));
+        $user->addSkill($this->getReference('skill_2'));
         $manager ->persist($user);
         $this->addReference('user_34', $user);
 
@@ -348,7 +348,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setPhoto($user->getFirstname() . ".png");
         $user->setOnFiverr(true);
         $user->setOnLinkedIn(true);
-        $user->addSkill($this->getReference('skill_1'));
+        $user->addSkill($this->getReference('skill_2'));
         $manager ->persist($user);
         $this->addReference('user_35', $user);
 
@@ -363,7 +363,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setPhoto($user->getFirstname() . ".png");
         $user->setOnFiverr(true);
         $user->setOnLinkedIn(false);
-        $user->addSkill($this->getReference('skill_1'));
+        $user->addSkill($this->getReference('skill_2'));
         $manager ->persist($user);
         $this->addReference('user_36', $user);
 
@@ -423,7 +423,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setPhoto($user->getFirstname() . ".png");
         $user->setOnFiverr(true);
         $user->setOnLinkedIn(true);
-        $user->addSkill($this->getReference('skill_3'));
+        $user->addSkill($this->getReference('skill_6'));
         $manager ->persist($user);
         $this->addReference('user_40', $user);
 
@@ -438,7 +438,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setPhoto($user->getFirstname() . ".png");
         $user->setOnFiverr(true);
         $user->setOnLinkedIn(true);
-        $user->addSkill($this->getReference('skill_4'));
+        $user->addSkill($this->getReference('skill_3'));
         $manager ->persist($user);
         $this->addReference('user_41', $user);
 
