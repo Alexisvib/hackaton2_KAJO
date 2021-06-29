@@ -34,6 +34,11 @@ class Skill
      */
     private $rockets;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $status = 0;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -107,6 +112,18 @@ class Skill
         if ($this->rockets->removeElement($rocket)) {
             $rocket->removeSkill($this);
         }
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?int $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }
