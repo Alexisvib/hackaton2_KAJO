@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Rocket;
+use App\Entity\User;
 use App\Form\RocketType;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,10 +45,30 @@ class RocketController extends AbstractController
     /**
      * @Route("/{id}/team-building", name="building")
      */
-    public function building(Rocket $rocket): Response
+    public function building(Rocket $rocket, EntityManagerInterface $entityManager, UserRepository $userRepository) : Response
     {
-        $rocketSkills = $rocket->getSkills();
-
+        $devs1[] = $userRepository->findOneBy(['firstname'=>'Nabilla','lastname'=>'Laroche']);
+        $devs1[] = $userRepository->findOneBy(['firstname'=>'Erwan','lastname'=>'Lequellec']);
+        $devs1[] = $userRepository->findOneBy(['firstname'=>'Marine','lastname'=>'Gaigeard']);
+        $devs1[] = $userRepository->findOneBy(['firstname'=>'Morgan','lastname'=>'Dumans']);
+        $devs2[] = $userRepository->findOneBy(['firstname'=>'Cindy','lastname'=>'Wizigo']);
+        $devs2[] = $userRepository->findOneBy(['firstname'=>'Coralie','lastname'=>'Rochas']);
+        $devs2[] = $userRepository->findOneBy(['firstname'=>'Bernadette','lastname'=>'Kuong']);
+        $devs2[] = $userRepository->findOneBy(['firstname'=>'Gerard','lastname'=>'Bouchard']);
+        $devs2[] = $userRepository->findOneBy(['firstname'=>'Umar','lastname'=>'Ganesh']);
+        $markets1[] = $userRepository->findOneBy(['firstname'=>'Monica','lastname'=>'Loreal']);
+        $markets1[] = $userRepository->findOneBy(['firstname'=>'Samantha','lastname'=>'Martine']);
+        $markets1[] = $userRepository->findOneBy(['firstname'=>'Nabilla','lastname'=>'Laroche']);
+        $markets1[] = $userRepository->findOneBy(['firstname'=>'Umar','lastname'=>'Ganesh']);
+        $markets2[] = $userRepository->findOneBy(['firstname'=>'Fabrice','lastname'=>'Morgane']);
+        $markets2[] = $userRepository->findOneBy(['firstname'=>'Patrick','lastname'=>'Martin']);
+        $markets2[] = $userRepository->findOneBy(['firstname'=>'Mylene','lastname'=>'Fermier']);
+        $markets2[] = $userRepository->findOneBy(['firstname'=>'Thomas','lastname'=>'Lancien']);
+        $markets2[] = $userRepository->findOneBy(['firstname'=>'Veronica','lastname'=>'Bank']);
+        $SEO1[] = $userRepository->findOneBy(['firstname'=>'Geraldine','lastname'=>'Korinthe']);
+        $SEO2[] = $userRepository->findOneBy(['firstname'=>'Charlotte','lastname'=>'Siemens']);
+        $SEO2[] = $userRepository->findOneBy(['firstname'=>'Robin','lastname'=>'Despre']);
+        dd($devs2);
         return $this->render('rocket/builder.html.twig', [
            'rocket' => $rocket,
         ]);

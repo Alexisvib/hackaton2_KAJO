@@ -22,7 +22,6 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         'Nicolas',
         'Killian',
         'Olivier',
-        'Alexis',
         'Solene',
         'Marie',
         'Julie',
@@ -40,29 +39,28 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
 
 
     public const LASTNAME = [
-        'chatelin',
-        'banon',
-        'cesne',
-        'letor',
-        'vidal',
-        'bouchard',
-        'reisse',
-        'letertre',
-        'arredondo',
-        'roche',
-        'labussière',
-        'bennaby',
-        'paillard',
-        'azou',
-        'degorges',
-        'desgranges',
-        'david',
-        'hararri',
-        'paillard',
-        'toussaint',
-        'sabatier',
-        'ajana',
-        'sansone',
+        'Chatelin',
+        'Banon',
+        'Cesne',
+        'Letor',
+        'Vidal',
+        'Bouchard',
+        'Reisse',
+        'Letertre',
+        'Arredondo',
+        'Labussière',
+        'Bennaby',
+        'Paillard',
+        'Azou',
+        'Degorges',
+        'Desgranges',
+        'David',
+        'Hararri',
+        'Paillard',
+        'Toussaint',
+        'Sabatier',
+        'Ajana',
+        'Sansone',
     ];
 
     public const ASTRO_SIGN = [
@@ -143,7 +141,6 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $plainPassword = 'famille';
         $encoded = $this->encoder->encodePassword($user, $plainPassword);
         $user->setPassword($encoded);
-        $user->setPassword($encoded);
         $user->setPhoto($user->getFirstname() . ".png");
         $user->setOnFiverr(true);
         $user->setOnLinkedIn(true);
@@ -152,7 +149,330 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->addSkill($this->getReference('skill_1'));
         $user->addSkill($this->getReference('skill_2'));
         $manager ->persist($user);
+        $this->addReference('user_22', $user);
+
+
+
+
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Fabrice');
+        $user->setLastname('Morgan');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_1'));
+        $manager ->persist($user);
         $this->addReference('user_23', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Erwan');
+        $user->setLastname('Lequellec');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_1'));
+        $manager ->persist($user);
+        $this->addReference('user_24', $user);
+
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Nabilla');
+        $user->setLastname('Laroche');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(false);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_4'));
+        $manager ->persist($user);
+        $this->addReference('user_25', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Marine');
+        $user->setLastname('Gaigeard');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(false);
+        $user->addSkill($this->getReference('skill_4'));
+        $manager ->persist($user);
+        $this->addReference('user_26', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Cindy');
+        $user->setLastname('Wizigo');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(false);
+        $user->addSkill($this->getReference('skill_2'));
+        $manager ->persist($user);
+        $this->addReference('user_27', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Coralie');
+        $user->setLastname('Rochas');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_2'));
+        $manager ->persist($user);
+        $this->addReference('user_28', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Morgan');
+        $user->setLastname('Dumans');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_5'));
+        $manager ->persist($user);
+        $this->addReference('user_29', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Bernadette');
+        $user->setLastname('Kuong');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(false);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_5'));
+        $manager ->persist($user);
+        $this->addReference('user_30', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Gerard');
+        $user->setLastname('Bouchard');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(false);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_3'));
+        $manager ->persist($user);
+        $this->addReference('user_31', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Umar');
+        $user->setLastname('Ganesh');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(false);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_3'));
+        $manager ->persist($user);
+        $this->addReference('user_32', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Patrick');
+        $user->setLastname('Martin');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_6'));
+        $manager ->persist($user);
+        $this->addReference('user_33', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Mylene');
+        $user->setLastname('Farmer');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_6'));
+        $manager ->persist($user);
+        $this->addReference('user_34', $user);
+
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Thomas');
+        $user->setLastname('Lancien');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_1'));
+        $manager ->persist($user);
+        $this->addReference('user_35', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Veronica');
+        $user->setLastname('Bank');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(false);
+        $user->addSkill($this->getReference('skill_1'));
+        $manager ->persist($user);
+        $this->addReference('user_36', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Monica');
+        $user->setLastname('Loreal');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_2'));
+        $manager ->persist($user);
+        $this->addReference('user_37', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Samantha');
+        $user->setLastname('Martine');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_2'));
+        $manager ->persist($user);
+        $this->addReference('user_38', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Charlotte');
+        $user->setLastname('Siemens');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_3'));
+        $manager ->persist($user);
+        $this->addReference('user_39', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Geraldine');
+        $user->setLastname('Korinthe');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_3'));
+        $manager ->persist($user);
+        $this->addReference('user_40', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Robin');
+        $user->setLastname('Despres');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_4'));
+        $manager ->persist($user);
+        $this->addReference('user_41', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Jamel');
+        $user->setLastname('Debouzze');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_4'));
+        $manager ->persist($user);
+        $this->addReference('user_42', $user);
+
+        $user = new User();
+        $user->setAstroSign(self::ASTRO_SIGN[rand(0,count(self::ASTRO_SIGN) - 1)]);
+        $user->setFirstname('Alexis');
+        $user->setLastname('Roche');
+        $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
+        $plainPassword = 'azerty';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_0'));
+        $manager ->persist($user);
+        $this->addReference('user_43', $user);
+
+
 
         $manager->flush();
     }

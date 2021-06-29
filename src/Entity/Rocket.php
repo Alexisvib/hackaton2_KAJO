@@ -46,10 +46,16 @@ class Rocket
      */
     private $startedAt;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class)
+     */
+    private $appliants;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
         $this->skills = new ArrayCollection();
+        $this->appliants = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -141,6 +147,30 @@ class Rocket
     public function setStartedAt(?\DateTimeInterface $startedAt): self
     {
         $this->startedAt = $startedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getAppliants(): Collection
+    {
+        return $this->appliants;
+    }
+
+    public function addAppliant(User $appliant): self
+    {
+        if (!$this->appliants->contains($appliant)) {
+            $this->appliants[] = $appliant;
+        }
+
+        return $this;
+    }
+
+    public function removeAppliant(User $appliant): self
+    {
+        $this->appliants->removeElement($appliant);
 
         return $this;
     }
