@@ -1,0 +1,71 @@
+.xavier {
+    height:80px;
+}
+
+.magnet {
+    width: 200px;
+}
+
+.basket{
+    width:600px;
+}
+
+
+.xavier{
+    position: relative;
+    top: 190px;
+    left: 600px;
+    z-index: -2;
+}
+
+.shaky{
+    animation: swing; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s; /* don't forget to set a duration! */
+    animation-iteration-count: infinite;
+}
+
+.xavier-magnet{
+    animation-name:slideTop;
+    animation-timing-function: cubic-bezier(.07,.81,1,-0.86);
+    animation-duration:1s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes slideTop {
+    0% {
+        transform: translate(0%, +0%);
+    }
+    100% {
+        transform: translate(0%, -300%);
+    }
+}
+
+
+
+
+
+.swing {
+    transform-origin: top center;
+    animation-name: swing;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes swing {
+    20% {
+        transform: rotate3d(0, 0, 1, 8deg);
+    }
+    40% {
+        transform: rotate3d(0, 0, 1, -4deg);
+    }
+    60% {
+        transform: rotate3d(0, 0, 1, 5deg);
+    }
+    80% {
+        transform: rotate3d(0, 0, 1, -3deg);
+    }
+    100% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+}

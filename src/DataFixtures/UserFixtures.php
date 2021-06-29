@@ -135,6 +135,21 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             $this->setReference('user_' . $i, $user);
         }
 
+        $user = new User();
+        $user->setAstroSign('Cancer');
+        $user->setFirstname('Xavier');
+        $user->setEmail('xavier.dll@gmail.com');
+        $user->setLastname('DDL');
+        $plainPassword = 'famille';
+        $encoded = $this->encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $user->setPassword($encoded);
+        $user->setPhoto($user->getFirstname() . ".png");
+        $user->setOnFiverr(true);
+        $user->setOnLinkedIn(true);
+        $manager ->persist($user);
+        $this->addReference('user_23', $user);
+
         $manager->flush();
     }
 

@@ -5,5 +5,9 @@ $primary: darken(#428bca, 20%);
 
 // the ~ allows you to reference things in node_modules
 @import "~bootstrap/scss/bootstrap";
+<<<<<<< HEAD
+@import 'machine.scss';
+=======
 @import "rotation.scss";
 @import "rocket.scss";
+>>>>>>> 466f5bbe0ed574603c101814143e739fae9c83ba

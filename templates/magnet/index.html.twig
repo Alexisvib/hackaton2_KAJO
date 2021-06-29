@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Machine !{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('magnet') }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <button id='button-magnet' class="btn btn-dark">Looking for a new Collaborator</button>
+        <div>
+            <div class="row d-flex justify-content-center">
+                <img  class="magnet" src="{{ asset('build/magnet.png') }}" alt="">
+            </div>
+            <br><br>
+
+                <img class='xavier shaky' id="xddl" src="{{ asset('build/Xavier.png') }}" alt="">
+
+            <br><br>
+            <div class="row d-flex justify-content-center">
+                    <img class='basket' src="{{ asset('build/panier.png') }}" alt="">
+            </div>
+        </div>
+    
+
+    </div>
+{% endblock %}
