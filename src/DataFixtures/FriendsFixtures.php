@@ -21,6 +21,22 @@ class FriendsFixtures extends Fixture implements DependentFixtureInterface
             }
         }
 
+        //for alexis
+        $alexis = $this->getReference('user_43');
+        for($i = 23; $i <=34; $i++) {
+            $alexis->addFriend($this->getReference('user_' . $i));
+        }
+
+        //then the user he know that have the correspondant contact
+        $this->getReference('user_25')->addFriend($this->getReference('user_35'));
+        $this->getReference('user_26')->addFriend($this->getReference('user_36'));
+        $this->getReference('user_29')->addFriend($this->getReference('user_37'));
+        $this->getReference('user_30')->addFriend($this->getReference('user_38'));
+        $this->getReference('user_33')->addFriend($this->getReference('user_39'));
+        $this->getReference('user_34')->addFriend($this->getReference('user_40'));
+
+
+
         $manager->flush();
     }
 
