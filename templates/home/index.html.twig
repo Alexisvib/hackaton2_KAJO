@@ -7,11 +7,6 @@
     <div class="example-wrapper container">
         <div class="row">
         {% for  rocket in rockets %}
-            {% for user in rocket.users %}
-                <div class="w-25 ">
-                    <img src="{{ asset('build/' ~ user.photo )}}" class="img-fluid rounded-circle" id="test{{ random(2) }}" alt="">
-                </div>
-            {% endfor %}
             <div class="col col-3 m-3">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
