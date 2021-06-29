@@ -5,14 +5,8 @@
 {% block body %}
 
 
-    <h1>Salut Olivier ! </h1>
+    <h1 class="text-center">Please Choose a project </h1>
 
-
-    <h2> Voici les rockets en fixtures : </h2>
-
-    {% for rocket in rockets %}
-        {{ dump(rocket.startedAt) }}
-    {% endfor %}
     <div class="example-wrapper container">
         <div class="row">
 
@@ -29,7 +23,7 @@
                         {% endfor %}
                     </ul>
                     <p class="card-footer">Launch date {{ rocket.startedAt|date('d/m/y') }}</p>
-                    <a href="#" class="btn btn-primary">Let's Go!</a>
+                    <a href="{{ path('rocket_building',{ id:rocket.id }) }}" class="btn btn-primary">Let's Go!</a>
                 </div>
             </div>
             </div>
