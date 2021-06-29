@@ -1,3 +1,5 @@
+
+
 $linkNotLight : white;
 $green-color: #49bf73;
 
@@ -38,6 +40,7 @@ $green-color: #49bf73;
 
 .left-module {
   position: relative;
+  width: 0;
 }
 
 .left-module::after {
@@ -82,4 +85,14 @@ $green-color: #49bf73;
   height: 2px;
   left: -205px;
   top: 50%;
+}
+
+.delete{
+  position: absolute;
+  top: 0;
+  left: 0px;
+}
+.delete:hover{
+  cursor:pointer;
+
 }
