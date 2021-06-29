@@ -1,0 +1,84 @@
+$rand : random(180);
+#test1{
+    animation-name: rotation1;
+    animation-duration: 28s;
+    animation-iteration-count: infinite;
+
+    @keyframes rotation1 {
+        0%{
+            transform: rotate(0);
+        }
+
+        25%{
+            transform: rotate(90deg);
+        }
+
+        50%{
+            transform: rotate(- $rand);
+        }
+
+        75%{
+            transform: rotate($rand);
+        }
+
+        100%{
+            transform: rotate(0);
+        }
+    }
+}
+
+#test2{
+    animation-name: rotation2;
+    animation-duration: 35s;
+    animation-iteration-count: infinite;
+
+    @keyframes rotation2 {
+        0%{
+            transform: rotate(0);
+        }
+
+        25%{
+            transform: rotate( - 90deg);
+        }
+
+        50%{
+            transform: rotate($rand);
+        }
+
+        75%{
+            transform: rotate( - $rand);
+        }
+
+        100%{
+            transform: rotate(0);
+        }
+    }
+}
+
+#test0{
+    animation-name: rotation0;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+
+    @keyframes rotation0 {
+        0%{
+            transform: rotate(0);
+        }
+
+        25%{
+            transform: rotate(180deg);
+        }
+
+        50%{
+            transform: rotate(- $rand);
+        }
+
+        75%{
+            transform: rotate($rand);
+        }
+
+        100%{
+            transform: rotate(0);
+        }
+    }
+}
