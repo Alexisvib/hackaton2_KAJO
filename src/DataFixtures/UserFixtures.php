@@ -145,7 +145,6 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
 
     public function getDependencies()
     {
-        // TODO: Implement getDependencies() method.
         return [SkillFixtures::class];
     }
 }
