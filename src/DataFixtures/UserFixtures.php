@@ -138,8 +138,8 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user = new User();
         $user->setAstroSign('Cancer');
         $user->setFirstname('Xavier');
-        $user->setEmail('xavier.dll@gmail.com');
-        $user->setLastname('DDL');
+        $user->setEmail('xavier.dupont@gmail.com');
+        $user->setLastname('Dupont');
         $plainPassword = 'famille';
         $encoded = $this->encoder->encodePassword($user, $plainPassword);
         $user->setPassword($encoded);
@@ -147,6 +147,10 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setPhoto($user->getFirstname() . ".png");
         $user->setOnFiverr(true);
         $user->setOnLinkedIn(true);
+        $user->addSkill($this->getReference('skill_7'));
+        $user->addSkill($this->getReference('skill_0'));
+        $user->addSkill($this->getReference('skill_1'));
+        $user->addSkill($this->getReference('skill_2'));
         $manager ->persist($user);
         $this->addReference('user_23', $user);
 

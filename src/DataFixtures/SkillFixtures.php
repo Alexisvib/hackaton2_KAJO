@@ -27,6 +27,11 @@ class SkillFixtures extends Fixture
             $manager->persist($skill);
             $this->addReference('skill_' . $i, $skill);
         }
+
+        $skill = new Skill();
+        $skill->setName('Digger');
+        $manager->persist($skill);
+        $this->addReference('skill_7', $skill);
         $manager->flush();
     }
 }

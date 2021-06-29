@@ -10,6 +10,29 @@
     width:600px;
 }
 
+.container-1, .container-2{
+    border: 1px solid black;
+    height:800px;
+}
+
+.result{
+    visibility: hidden;
+}
+
+#loading{
+    top: 40px;
+    position: relative;
+    right: 100px;
+    height: 60px;
+    width: 200px;
+    z-index: 1000;
+}
+
+
+
+.button-magnet{
+    width:100%;
+}
 
 .xavier{
     position: relative;

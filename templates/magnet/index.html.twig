@@ -11,8 +11,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-6">
-                <button id='button-magnet' class="btn btn-dark">Looking for a new Collaborator</button>
-                <div>
+                <button id='button-magnet' class="btn btn-dark button-magnet">Looking for a new Collaborator</button>
+                <div class="container-1">
                     <div class="row d-flex justify-content-center">
                         <img  class="magnet" src="{{ asset('build/magnet.png') }}" alt="">
                     </div>
@@ -26,9 +26,46 @@
                     </div>
                 </div>
             </div>
+            <div class="col-6">
+                <button class="btn btn-dark button-magnet">Collaborator Found</button>
+
+                <div class="container-2">
+                    <button class="btn btn-dark result" type="button" id="loading" disabled>
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Requeting on Fiverr DataBase
+                    </button>
+                    <div class="result" id="result">
+                        <h1> Firstname : {{ xavier.firstname}} </h1>
+                        <br><br>
+                        <h1> Lastname : {{ xavier.lastname}}</h1>
+                        <br><br>
+                        <h1> Email : {{ xavier.email }} </h1>
+                        <br><br>
+                        <h1> Astrologic Sign : {{ xavier.astroSign}}</h1>
+                        <br><br>
+                        <h1>Skills : </h1>
+                        <div class="row">
+                            <div class="col-5">
+                                <ul>
+                                    {% for skill in xavier.skills %}
+                                        <li class="btn btn-success">{{ skill.name }}</li>
+                                        <br>
+                                        <br>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="col-5 d-flex align-items-center">
+                                <button class="btn btn-danger">Add this member to the Rocket ! </button>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-
-    
-
     </div>
 {% endblock %}
