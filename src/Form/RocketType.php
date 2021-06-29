@@ -17,15 +17,15 @@ class RocketType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
-            ->add('users', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'email',
-                'label_attr' => [
-                    'class' => '`checkbox-inline',
-                ],
-                'multiple' => true,
-                'expanded' => false,
-            ])
+//            ->add('users', EntityType::class, [
+//                'class' => User::class,
+//                'choice_label' => 'email',
+//                'label_attr' => [
+//                    'class' => '`checkbox-inline',
+//                ],
+//                'multiple' => true,
+//                'expanded' => false,
+//            ])
             ->add('skills', EntityType::class, [
                 'class' => Skill::class,
                 'choice_label' => 'name',

@@ -8,6 +8,8 @@
 {% endblock %}
 
 {% block body %}
+
+
 <div class="modules-block d-flex align-items-center">
     <div class="left-module" style="height: 300px;width: 300px;background-color: #0d5e42"></div>
     <div style="height: 300px;width: 500px;"></div>
@@ -21,6 +23,39 @@
                 <div class="right-module" data-isLightening="{{ i }}" style="height: 200px;width: 200px;background-color: aquamarine"></div>
             </div>
         {% endfor %}
+    </div>
+</div>
+
+
+{{ dump(rocket) }}
+{{ dump(app.user.friends) }}
+<div class="row m-2 ">
+    <div class="col col-2 ">
+        <div class="rocketContainer d-flex flex-column ">
+            <img src="{{ asset('build/rocket/HeadRocket.png') }}" width="150px" alt="pas trouve">
+                <div class="module-container">
+                        <img  id="test{{ random(2) }}" class="passenger-photo" src="{{ asset('build/' ~ app.user.photo ) }}" alt="">
+                        <img  src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
+                    <div class="d-flex flex-column dot-container">
+                        <span class= "dot" ></span>
+                        <span class= "dot" ></span>
+                        <span class= "dot dot-2" ></span>
+                    </div>
+                    <div class="module-label">{{ rocket.skills[0].name }}</div>
+                </div>
+            {% for skill in rocket.skills|slice(1,rocket.skills|length) %}
+                <div class="module-container">
+                        <img  src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
+                    <div class="d-flex flex-column dot-container">
+                        <span class="dot {{ (skill.status == 0) ? "dot-" ~ skill.status: ""}}"></span>
+                        <span class="dot {{ (skill.status == 1) ? "dot-" ~ skill.status: ""}}"></span>
+                        <span class="dot {{ (skill.status == 2) ? "dot-" ~ skill.status: ""}}"></span>
+                    </div>
+                    <div class="module-label">{{ rocket.skills[loop.index].name }}</div>
+                </div>
+            {% endfor %}
+            <img src="{{ asset('build/rocket/tailRocket.png') }}"width="150px"  alt="pas trouve">
+        </div>
     </div>
 </div>
 {% endblock %}

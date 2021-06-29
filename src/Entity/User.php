@@ -239,7 +239,6 @@ class User implements UserInterface
     public function removeRocket(Rocket $rocket): self
     {
         $this->rockets->removeElement($rocket);
-
         return $this;
     }
 
