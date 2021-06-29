@@ -10,7 +10,14 @@
             <div class="rocketContainer d-flex flex-column ">
                 <img src="{{ asset('build/rocket/HeadRocket.png') }}" width="150px" alt="pas trouve">
                 {% for skill in rocket.skills %}
-                <img src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
+                    <div class="module-container">
+                            <img src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
+                        <div class="d-flex flex-column dot-container">
+                            <span class="dot {{ (skill.status == 0) ? "dot-" ~ skill.status: ""}}"></span>
+                            <span class="dot {{ (skill.status == 1) ? "dot-" ~ skill.status: ""}}"></span>
+                            <span class="dot {{ (skill.status == 2) ? "dot-" ~ skill.status: ""}}"></span>
+                        </div>
+                    </div>
                 {% endfor %}
                 <img src="{{ asset('build/rocket/tailRocket.png') }}"width="150px"  alt="pas trouve">
             </div>
