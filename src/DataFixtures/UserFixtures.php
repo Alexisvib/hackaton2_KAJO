@@ -148,5 +148,3 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         return [SkillFixtures::class];
     }
 }
-
-
