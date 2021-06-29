@@ -3,13 +3,14 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Skill;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class UserFixtures extends Fixture
+class UserFixtures extends Fixture implements DependentFixtureInterface
 {
     public const FIRSTNAME = [
         'Francois',
@@ -36,6 +37,7 @@ class UserFixtures extends Fixture
         'Charles-Hugo',
         'Hugo',
     ];
+
 
     public const LASTNAME = [
         'chatelin',
@@ -77,6 +79,16 @@ class UserFixtures extends Fixture
         'Aquarius',
         'Pisces',
     ];
+    public const SKILLS = [
+        'skill_0',
+        'skill_1',
+        'skill_2',
+        'skill_3',
+        'skill_4',
+        'skill_5',
+        'skill_6',
+        'skill_7',
+    ];
 
     private UserPasswordEncoderInterface $encoder;
 
@@ -97,6 +109,13 @@ class UserFixtures extends Fixture
             $plainPassword = 'azerty';
             $encoded = $this->encoder->encodePassword($user, $plainPassword);
             $user->setPassword($encoded);
+            $skill1 = $this->getReference(self::SKILLS[rand(0,count(SkillFixtures::SKILLS) -1 )]);
+            $skill2 = $this->getReference(self::SKILLS[rand(0,count(SkillFixtures::SKILLS) -1 )]);
+            while ($this->checkSame($skill1,$skill2)) {
+            $skill2 = $this->getReference(self::SKILLS[rand(0,count(SkillFixtures::SKILLS) -1 )]);
+            }
+            $user->addSkill($skill1);
+            $user->addSkill($skill2);
             $user->setPhoto($user->getFirstname() . ".png");
             $user->setAstroSign('Cancer');
             if($i < 7 ) {
@@ -117,6 +136,17 @@ class UserFixtures extends Fixture
         }
 
         $manager->flush();
+    }
+
+    public function checkSame(Skill $skill1, Skill $skill2)
+    {
+        return $skill1->getId() === $skill2->getId();
+    }
+
+    public function getDependencies()
+    {
+        // TODO: Implement getDependencies() method.
+        return [SkillFixtures::class];
     }
 }
 
