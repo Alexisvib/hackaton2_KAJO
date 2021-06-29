@@ -5,4 +5,15 @@
 {% block body %}
     {{ dump(rocket) }}
     {{ dump(app.user.friends) }}
+    <div class="row m-2 ">
+        <div class="col col-2 ">
+            <div class="rocketContainer d-flex flex-column ">
+                <img src="{{ asset('build/rocket/HeadRocket.png') }}" width="150px" alt="pas trouve">
+                {% for skill in rocket.skills %}
+                <img src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
+                {% endfor %}
+                <img src="{{ asset('build/rocket/tailRocket.png') }}"width="150px"  alt="pas trouve">
+            </div>
+        </div>
+    </div>
 {% endblock %}
