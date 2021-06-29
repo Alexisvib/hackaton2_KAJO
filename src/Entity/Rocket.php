@@ -29,10 +29,7 @@ class Rocket
      */
     private $description;
 
-    /**
-     * @ORM\Column(type="datetime_immutable")
-     */
-    private $started_at;
+
 
     /**
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="rockets")
@@ -43,6 +40,11 @@ class Rocket
      * @ORM\ManyToMany(targetEntity=Skill::class, inversedBy="rockets")
      */
     private $skills;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $startedAt;
 
     public function __construct()
     {
@@ -79,17 +81,6 @@ class Rocket
         return $this;
     }
 
-    public function getStartedAt(): ?\DateTimeImmutable
-    {
-        return $this->started_at;
-    }
-
-    public function setStartedAt(\DateTimeImmutable $started_at): self
-    {
-        $this->started_at = $started_at;
-
-        return $this;
-    }
 
     /**
      * @return Collection|User[]
@@ -138,6 +129,18 @@ class Rocket
     public function removeSkill(Skill $skill): self
     {
         $this->skills->removeElement($skill);
+
+        return $this;
+    }
+
+    public function getStartedAt(): ?\DateTimeInterface
+    {
+        return $this->startedAt;
+    }
+
+    public function setStartedAt(?\DateTimeInterface $startedAt): self
+    {
+        $this->startedAt = $startedAt;
 
         return $this;
     }
