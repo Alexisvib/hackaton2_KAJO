@@ -7,6 +7,7 @@ use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends Fixture
 {
@@ -77,6 +78,12 @@ class UserFixtures extends Fixture
         'Pisces',
     ];
 
+    private UserPasswordEncoderInterface $encoder;
+
+    public function __construct(UserPasswordEncoderInterface $encoder){
+        $this->encoder = $encoder;
+    }
+
     public function load(ObjectManager $manager)
     {
 
@@ -87,7 +94,9 @@ class UserFixtures extends Fixture
             $user->setFirstname(self::FIRSTNAME[$i]);
             $user->setLastname(self::LASTNAME[$i]);
             $user->setEmail($user->getFirstname() . $user->getLastname() . "@gmail.com");
-            $user->setPassword($user->getFirstname() . $user->getLastname() );
+            $plainPassword = 'azerty';
+            $encoded = $this->encoder->encodePassword($user, $plainPassword);
+            $user->setPassword($encoded);
             $user->setPhoto($user->getFirstname() . ".png");
             $user->setAstroSign('Cancer');
             if($i < 7 ) {

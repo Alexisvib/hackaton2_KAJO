@@ -10,10 +10,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/rocket", name="rocket_")
+ */
+
 class RocketController extends AbstractController
 {
     /**
-     * @Route("/rocket/new", name="rocket_new")
+     * @Route("/new", name="new")
      */
     public function new(Request $request, EntityManagerInterface $em): Response
     {
@@ -32,6 +36,18 @@ class RocketController extends AbstractController
 
         return $this->render('rocket/index.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/team-building", name="building")
+     */
+    public function building(Rocket $rocket): Response
+    {
+        $rocketSkills = $rocket->getSkills();
+
+        return $this->render('rocket/builder.html.twig', [
+           'rocket' => $rocket,
         ]);
     }
 }

@@ -11,7 +11,7 @@ class RocketFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $date = new \DateTimeImmutable();
+        $date = new \DateTime();
 
 
         $rocket = new Rocket();
