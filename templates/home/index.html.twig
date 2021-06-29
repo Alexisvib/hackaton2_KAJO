@@ -3,13 +3,27 @@
 {% block title %}Home !{% endblock %}
 
 {% block body %}
-
-    <h1>Salut {{ app.user.firstname }} ! </h1>
-
-    <h2> Voici les rockets en fixtures : </h2>
-
-    {% for rocket in rockets %}
-        {{ dump(rocket) }}
-    {% endfor %}
-</div>
+    <h1 class="text-center">Please Choose a project </h1>
+    <div class="example-wrapper container">
+        <div class="row">
+        {% for  rocket in rockets %}
+            <div class="col col-3 m-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ rocket.title }}</h5>
+                    <p class="card-text">{{ rocket.description }}</p>
+                    <h6>Skills required</h6>
+                    <ul>
+                        {% for skill in rocket.skills %}
+                            <li class="class-text">{{ skill.name }}</li>
+                        {% endfor %}
+                    </ul>
+                    <p class="card-footer">Launch date {{ rocket.startedAt|date('d/m/y') }}</p>
+                    <a href="{{ path('rocket_building',{ id:rocket.id }) }}" class="btn btn-primary">Let's Go!</a>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
 {% endblock %}
