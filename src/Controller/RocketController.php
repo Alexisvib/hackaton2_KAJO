@@ -27,6 +27,7 @@ class RocketController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
             $rocket->setStartedAt(new \DateTimeImmutable());
+            $rocket->addUser($this->getUser());
             $em->persist($rocket);
             $em->flush();
             $this->addFlash('success', 'Add a rocket');
