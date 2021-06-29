@@ -9,7 +9,16 @@
         <div class="col col-2 ">
             <div class="rocketContainer d-flex flex-column ">
                 <img src="{{ asset('build/rocket/HeadRocket.png') }}" width="150px" alt="pas trouve">
-                {% for skill in rocket.skills %}
+                    <div class="module-container">
+                            <img class="passenger-photo" src="{{ asset('build/' ~ app.user.photo ) }}" alt="">
+                            <img src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
+                        <div class="d-flex flex-column dot-container">
+                            <span class= "dot" ></span>
+                            <span class= "dot" ></span>
+                            <span class= "dot dot-2" ></span>
+                        </div>
+                    </div>
+                {% for skill in rocket.skills|slice(1,rocket.skills|length) %}
                     <div class="module-container">
                             <img src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
                         <div class="d-flex flex-column dot-container">
