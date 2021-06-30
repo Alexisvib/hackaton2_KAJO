@@ -1,5 +1,5 @@
 $rand : random(180);
-#test1{
+.test1{
     animation-name: rotation1;
     animation-duration: 28s;
     animation-iteration-count: infinite;
@@ -27,7 +27,7 @@ $rand : random(180);
     }
 }
 
-#test2{
+.test2{
     animation-name: rotation2;
     animation-duration: 35s;
     animation-iteration-count: infinite;
@@ -55,7 +55,7 @@ $rand : random(180);
     }
 }
 
-#test0{
+.test0{
     animation-name: rotation0;
     animation-duration: 20s;
     animation-iteration-count: infinite;
@@ -82,3 +82,24 @@ $rand : random(180);
         }
     }
 }
+
+.roue{
+    width: 60px;
+    height: auto;
+}
+
+.roueOn{
+    animation-name: tapisMove;
+    animation-duration: 3s;
+
+    @keyframes tapisMove {
+        0%{
+            transform: rotate(0);
+        }
+
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+}
+

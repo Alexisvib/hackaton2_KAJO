@@ -45,10 +45,18 @@ class RocketController extends AbstractController
      */
     public function building(Rocket $rocket): Response
     {
-        $rocketSkills = $rocket->getSkills();
-
         return $this->render('rocket/builder.html.twig', [
            'rocket' => $rocket,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/fire", name="fire")
+     */
+    public function fire(Rocket $rocket): Response
+    {
+        return $this->render('rocket/fire.html.twig', [
+            'rocket' => $rocket,
         ]);
     }
 }
