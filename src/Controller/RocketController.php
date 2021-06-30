@@ -73,6 +73,9 @@ class RocketController extends AbstractController
         $chosen[] = $userRepository->findOneBy(['firstname'=>'Fabrice','lastname'=>'Morgan']);
         $chosen[] = $userRepository->findOneBy(['firstname'=>'Veronica','lastname'=>'Bank']);
         $chosen[] = $userRepository->findOneBy(['firstname'=>'Xavier','lastname'=>'Dupont']);
+        $devFriends = [0,0,2,3];
+        $marketFriends = [0,0,1,4];
+        $SEOFriends = [2];
         return $this->render('rocket/builder.html.twig', [
            'dev1' => $devs1,
            'dev2' => $devs2,
@@ -81,7 +84,10 @@ class RocketController extends AbstractController
             'SEO1'=>$SEO1,
             'SEO2'=>$SEO2,
             'rocket'=>$rocket,
-            'chosen'=>$chosen
+            'chosen'=>$chosen,
+            'devFriends'=>$devFriends,
+            'marketFriends'=>$marketFriends,
+            'SEOFriends'=>$SEOFriends
         ]);
     }
 
