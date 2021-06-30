@@ -4,7 +4,7 @@ let downLinks = document.getElementsByClassName('link-down');
 let eraseUpLinks = [];
 let eraseDownLinks = [];
 let linkNotLight = 'white';
-let linkLight = 'greenyellow';
+let linkLight = '#6BC173';
 
 for (block of blocks) {
     block.addEventListener('mouseover', function () {
