@@ -20,4 +20,25 @@ class HomeController extends AbstractController
             'rockets' => $rockets
         ]);
     }
+
+    /**
+     * @Route("/refus", name="refus")
+     */
+    public function refus(): Response
+    {
+        $this->addFlash('danger', 'You have Rejected the Project ! ');
+        return $this->redirectToRoute('home');
+    }
+
+    /**
+     * @Route("/accept", name="accept")
+     */
+    public function accept(): Response
+    {
+        $this->addFlash('success', 'You have join a Rocket, Congratulation ! ');
+        return $this->redirectToRoute('home');
+    }
+
+
+
 }
