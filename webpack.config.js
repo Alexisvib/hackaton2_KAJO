@@ -30,6 +30,7 @@ Encore
     .addEntry('linkModules', './assets/linkModules.js')
     .addEntry('magnet', './assets/magnet.js')
     .addEntry('rocketBuilder', './assets/rocketBuilder.js')
+    .addEntry('tapis', './assets/tapis.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

@@ -4,11 +4,12 @@ let downLinks = document.getElementsByClassName('link-down');
 let eraseUpLinks = [];
 let eraseDownLinks = [];
 let linkNotLight = 'white';
-let linkLight = 'greenyellow';
+let linkLight = '#6BC173';
 
 for (block of blocks) {
     block.addEventListener('mouseover', function () {
-        if (blocks.length === 4) {
+        console.log(blocks.length);
+        if (block.dataset.module === 'seo1') {
             if (this.dataset.islightening == 1) {
                 for (upLink of upLinks) {
                     if (upLink.dataset.islightening == 2) {
@@ -51,7 +52,7 @@ for (block of blocks) {
                     }
                 }
             }
-        } else if (blocks.length === 3) {
+        } /*else if (blocks.length === 3) {
             if (this.dataset.islightening == 1) {
                 for (upLink of upLinks) {
                     if (upLink.dataset.islightening == 2) {
@@ -95,7 +96,7 @@ for (block of blocks) {
                     }
                 }
             }
-        }
+        }*/
     });
 
     block.addEventListener('mouseout', function () {

@@ -82,3 +82,24 @@ $rand : random(180);
         }
     }
 }
+
+.roue{
+    width: 60px;
+    height: auto;
+}
+
+.roueOn{
+    animation-name: tapisMove;
+    animation-duration: 3s;
+
+    @keyframes tapisMove {
+        0%{
+            transform: rotate(0);
+        }
+
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+}
+
