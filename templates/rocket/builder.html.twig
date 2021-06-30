@@ -28,13 +28,12 @@
 
 
 
-{#{{ dump(app.user.friends) }}#}
 <div class="row m-2 ">
     <div class="col col-2 ">
         <div class="rocketContainer d-flex flex-column ">
             <img src="{{ asset('build/rocket/HeadRocket.png') }}" width="150px" alt="pas trouve">
                 <div class="module-container">
-                        <img  id="test{{ random(2) }}" class="passenger-photo" src="{{ asset('build/' ~ app.user.photo ) }}" alt="">
+                    <img  class="passenger-photo test{{  random(2) }}" src="{{ asset('build/' ~ app.user.photo ) }}" alt="">
                         <img  src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
                     <div class="delete" style="color:red">X </div>
                     <div class="d-flex flex-column dot-container">
@@ -57,7 +56,7 @@
                     <div class="module-label">{{ rocket.skills[loop.index].name }}</div>
                 </div>
             {% endfor %}
-            <img src="{{ asset('build/rocket/tailRocket.png') }}"width="150px"  alt="pas trouve">
+            <img src="{{ asset('build/rocket/tailRocket.png') }}" width="150px"  alt="pas trouve">
         </div>
     </div>
 {#    dev1 #}

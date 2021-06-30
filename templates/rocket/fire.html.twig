@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Build your team work !{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('tapis') }}
+{% endblock %}
+
+{% block body %}
+    <div class="row ">
+        <div class=" col-2 ">
+            <div class="rocketContainer rocket  d-flex flex-column " id="rocket">
+                <img src="{{ asset('build/rocket/HeadRocket.png') }}" width="150px" alt="pas trouve">
+                <div class="module-container">
+                    <img  class="passenger-photo test{{  random(2) }}" src="{{ asset('build/' ~ app.user.photo ) }}" alt="">
+                    <img  src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
+                    <div class="d-flex flex-column dot-container">
+                        <span class= "dot" ></span>
+                        <span class= "dot" ></span>
+                        <span class= "dot dot-2" ></span>
+                    </div>
+                    <div class="module-label">{{ rocket.skills[0].name }}</div>
+                </div>
+                {% for skill in rocket.skills|slice(1,rocket.skills|length) %}
+                    <div class="module-container">
+                        <img  src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
+                        <div class="d-flex flex-column dot-container">
+                            <span class="dot {{ (skill.status == 0) ? "dot-" ~ skill.status: ""}}"></span>
+                            <span class="dot {{ (skill.status == 1) ? "dot-" ~ skill.status: ""}}"></span>
+                            <span class="dot {{ (skill.status == 2) ? "dot-" ~ skill.status: ""}}"></span>
+                        </div>
+                        <div class="module-label">{{ rocket.skills[loop.index].name }}</div>
+                    </div>
+                {% endfor %}
+                <img src="{{ asset('build/rocket/tailRocket.png') }}" width="150px"  alt="pas trouve">
+            </div>
+        </div>
+        <div class="col-3 d-flex align-items-center">
+            <img src="{{ asset('build/arrowRight.png') }}" class="arrowRight bounceIn" id="arrowR" alt="">
+        </div>
+    </div>
+    <div class="d-flex justify-content-between tapis w-100">
+            <img src="{{ asset('build/roue.png') }}" class="img-fluid   roue" id="roue1" alt="">
+            <img src="{{ asset('build/roue.png') }}" class="img-fluid  roue" id="roue2" alt="">
+    </div>
+{% endblock %}

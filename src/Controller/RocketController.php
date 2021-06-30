@@ -47,6 +47,7 @@ class RocketController extends AbstractController
      */
     public function building(Rocket $rocket, EntityManagerInterface $entityManager, UserRepository $userRepository) : Response
     {
+
         $devs1[] = $userRepository->findOneBy(['firstname'=>'Nabilla','lastname'=>'Laroche']);
         $devs1[] = $userRepository->findOneBy(['firstname'=>'Erwan','lastname'=>'Lequellec']);
         $devs1[] = $userRepository->findOneBy(['firstname'=>'Marine','lastname'=>'Gaigeard']);
@@ -77,6 +78,16 @@ class RocketController extends AbstractController
             'SEO1'=>$SEO1,
             'SEO2'=>$SEO2,
             'rocket'=>$rocket
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/fire", name="fire")
+     */
+    public function fire(Rocket $rocket): Response
+    {
+        return $this->render('rocket/fire.html.twig', [
+            'rocket' => $rocket,
         ]);
     }
 }
