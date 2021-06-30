@@ -10,13 +10,9 @@
 
 {% block body %}
 
-
-
-
-
 <div class="row m-2 space-background">
     <div class="col col-2 ">
-        <div class="rocketContainer d-flex flex-column ">
+        <div class="rocketContainer d-flex flex-column">
             <img src="{{ asset('build/rocket/HeadRocket.png') }}" width="150px" alt="pas trouve">
                 <div class="module-container">
                         <img   class="test{{ random(2) }} passenger-photo" src="{{ asset('build/' ~ app.user.photo ) }}" alt="">

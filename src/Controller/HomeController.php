@@ -11,8 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
-     */
+ * @Route("/", name="home")
+ */
     public function index(RocketRepository $rocketRepository): Response
     {
         $rockets = $rocketRepository->findAll();
@@ -20,6 +20,19 @@ class HomeController extends AbstractController
             'rockets' => $rockets
         ]);
     }
+
+    /**
+     * @Route("/InProgress", name="InProgress")
+     */
+    public function InProgress(RocketRepository $rocketRepository): Response
+    {
+        $rocket = $rocketRepository->findOneBy(['title' => 'Project Website of mr Chatelain']);
+        return $this->render('home/inProgress.html.twig', [
+            'rocket' => $rocket
+        ]);
+    }
+
+
 
     /**
      * @Route("/refus", name="refus")
