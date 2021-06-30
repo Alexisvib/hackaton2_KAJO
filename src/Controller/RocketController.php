@@ -71,7 +71,7 @@ class RocketController extends AbstractController
         $SEO2[] = $userRepository->findOneBy(['firstname'=>'Robin','lastname'=>'Despres']);
         $chosen[] = $userRepository->findOneBy(['firstname'=>'Bernadette','lastname'=>'Kuong']);
         $chosen[] = $userRepository->findOneBy(['firstname'=>'Fabrice','lastname'=>'Morgan']);
-        $chosen[] = $userRepository->findOneBy(['firstname'=>'Veronica','lastname'=>'Bank']);
+        $chosen[] = $userRepository->findOneBy(['firstname'=>'Charlotte','lastname'=>'Siemens']);
         $chosen[] = $userRepository->findOneBy(['firstname'=>'Xavier','lastname'=>'Dupont']);
         $devFriends = [0,0,2,3];
         $marketFriends = [0,0,1,4];
