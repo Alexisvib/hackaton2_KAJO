@@ -14,17 +14,17 @@ arrowR.addEventListener('click', async e => {
    await sleep(3000)
    buttonFire.classList.toggle('dNone')
    buttonFire.classList.toggle('fadeIn')
-   await sleep(3000)
+
+});
+
+buttonFire.addEventListener('click', async e => {
+   e.preventDefault();
    buttonFire.classList.toggle('bounceInButton')
-   await sleep(3000)
    flame.classList.toggle('dNone')
    flame.classList.toggle('bounceIn')
    flame.classList.toggle('fadeIn')
    rocket.classList.toggle('fadeOutUpBig')
-
-
-});
-
+})
 function sleep(ms)
 {
    return new Promise(resolve => setTimeout(resolve, ms));
