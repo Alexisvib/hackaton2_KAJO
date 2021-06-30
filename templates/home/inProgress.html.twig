@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Projects !{% endblock %}
+
+{% block body %}
+    <div class="row d-flex justify-content-center">
+        <div class="col-5">
+            <h1 class="title-nav">My Projects </h1>
+        </div>
+    </div>
+
+    <div class="example-wrapper container">
+        <div class="row">
+            <div class="col col-3 m-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>{{ rocket.title }}</strong></h5>
+                        <p class="card-text">{{ rocket.description }}</p>
+                        <h6>Skills required</h6>
+                        <ul>
+                            {% for skill in rocket.skills %}
+                                <li class="class-text">{{ skill.name }}</li>
+                            {% endfor %}
+                        </ul>
+                        <p class="card-footer">Launch date {{ rocket.startedAt|date('d/m/y') }}</p>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">1 missing person</div>
+                        </div>
+                        <br><br>
+                        <a href="{{ path('rocket_buildingv2',{ id:rocket.id }) }}" class="btn button-fiverr">Let's Go!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
