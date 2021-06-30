@@ -193,10 +193,19 @@ class RocketController extends AbstractController
     /**
      * @Route("/{id}/fire", name="fire")
      */
-    public function fire(Rocket $rocket): Response
+    public function fire(Rocket $rocket, UserRepository $userRepository): Response
     {
+        $bernadette = $userRepository->findOneBy(['firstname'=>'Bernadette','lastname'=>'Kuong']);
+        $fabrice = $userRepository->findOneBy(['firstname'=>'Fabrice','lastname'=>'Morgan']);
+        $xavier = $userRepository->findOneBy(['firstname'=>'Xavier','lastname'=>'Dupont']);
+
+
+
         return $this->render('rocket/fire.html.twig', [
             'rocket' => $rocket,
+            'bernadette' => $bernadette,
+            'fabrice' => $fabrice,
+            'xavier' =>$xavier,
         ]);
     }
 }

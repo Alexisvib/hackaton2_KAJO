@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block body %}
-    <div class="row space-background">
+    <div class="row">
         <div class=" col-2 ">
             <div class="rocketContainer rocket  d-flex flex-column " id="rocket">
                 <img src="{{ asset('build/rocket/HeadRocket.png') }}" width="150px" alt="pas trouve">
@@ -22,17 +22,41 @@
                     </div>
                     <div class="module-label">{{ rocket.skills[0].name }}</div>
                 </div>
-                {% for skill in rocket.skills|slice(1,rocket.skills|length) %}
-                    <div class="module-container">
-                        <img  src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
-                        <div class="d-flex flex-column dot-container">
-                            <span class="dot {{ (skill.status == 0) ? "dot-" ~ skill.status: ""}}"></span>
-                            <span class="dot {{ (skill.status == 1) ? "dot-" ~ skill.status: ""}}"></span>
-                            <span class="dot {{ (skill.status == 2) ? "dot-" ~ skill.status: ""}}"></span>
-                        </div>
-                        <div class="module-label">{{ rocket.skills[loop.index].name }}</div>
+
+
+
+                <div class="module-container">
+                    <img  class="passenger-photo test{{  random(2) }}" src="{{ asset('build/' ~ bernadette.photo ) }}" alt="">
+                    <img  src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
+                    <div class="d-flex flex-column dot-container">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot dot-2"></span>
                     </div>
-                {% endfor %}
+                    <div class="module-label">Web dev</div>
+                </div>
+
+                <div class="module-container">
+                    <img  class="passenger-photo test{{  random(2) }}" src="{{ asset('build/' ~ fabrice.photo ) }}" alt="">
+                    <img  src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
+                    <div class="d-flex flex-column dot-container">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot dot-2"></span>
+                    </div>
+                    <div class="module-label">Marketing</div>
+                </div>
+
+                <div class="module-container">
+                    <img  class="passenger-photo test{{  random(2) }}" src="{{ asset('build/' ~ xavier.photo ) }}" alt="">
+                    <img  src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
+                    <div class="d-flex flex-column dot-container">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot  dot-2"></span>
+                    </div>
+                    <div class="module-label">SEO</div>
+                </div>
                 <img src="{{ asset('build/rocket/tailRocket.png') }}" width="150px"  alt="pas trouve">
                 <img src="{{ asset('build/flame.png') }}" class="flame dNone img-fluid" id="rocketFlame">
             </div>
@@ -49,18 +73,20 @@
             <img src="{{ asset('build/roue.png') }}" class="img-fluid  roue" id="roue2" alt="">
     </div>
 
-<div class="d-flex flex-column justify-content-center align-items-center w-100 iconContainer dNone" id="iconContainer">
-    <svg viewBox="0 0 500 500" style="width: 35%;height: 300px">
+<div class="d-flex flex-column justify-content-center align-items-center w-100 iconContainer dNone" id="iconContainer" style="background-color: whitesmoke">
+    <svg viewBox="0 0 500 500" style="width: 35%;height: 300px;">
         <path id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"
               style="fill: transparent;width: 750px;"/>
         <text width="200">
-            <textPath xlink:href="#curve" style="font-size: 50px;color: #0d5e42;">
+            <textPath xlink:href="#curve" style="font-size: 50px;">
                 Project launched !
             </textPath>
         </text>
     </svg>
+    <h2> CONGRATULATION ! </h2>
     <div  style="font-size: 80px;" class="img-fluid" id="rocketIcon">🚀</div>
 </div>
 
+    <div class="fond-background space-background"></div>
 
 {% endblock %}
