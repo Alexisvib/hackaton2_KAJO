@@ -14,10 +14,15 @@
   width: 100%;
 }
 
-.btn-danger{
+.btnvh-danger{
   width: 100%;
 }
 
 .space-background{
   background-image: url("../../public/build/space.png");
+}
+
+.iconContainer{
+  position: absolute;
+  top:36vh
 }
