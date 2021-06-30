@@ -4,6 +4,8 @@ arrowR = document.getElementById('arrowR');
 rocket  = document.getElementById('rocket')
 buttonFire = document.getElementById('buttonFire');
 flame = document.getElementById('rocketFlame')
+icon = document.getElementById('rocketIcon')
+iconContainer = document.getElementById('iconContainer')
 
 arrowR.addEventListener('click', async e => {
    e.preventDefault();
@@ -24,7 +26,14 @@ buttonFire.addEventListener('click', async e => {
    flame.classList.toggle('bounceIn')
    flame.classList.toggle('fadeIn')
    rocket.classList.toggle('fadeOutUpBig')
+   await sleep(4000)
+   iconContainer.classList.toggle('dNone')
+   iconContainer.classList.toggle('fadeIn')
+   icon.classList.toggle('tada')
+
 })
+
+
 function sleep(ms)
 {
    return new Promise(resolve => setTimeout(resolve, ms));
