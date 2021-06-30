@@ -3,6 +3,7 @@ roue2 = document.getElementById('roue2');
 arrowR = document.getElementById('arrowR');
 rocket  = document.getElementById('rocket')
 buttonFire = document.getElementById('buttonFire');
+flame = document.getElementById('rocketFlame')
 
 arrowR.addEventListener('click', async e => {
    e.preventDefault();
@@ -13,6 +14,14 @@ arrowR.addEventListener('click', async e => {
    await sleep(3000)
    buttonFire.classList.toggle('dNone')
    buttonFire.classList.toggle('fadeIn')
+   await sleep(3000)
+   buttonFire.classList.toggle('bounceInButton')
+   await sleep(3000)
+   flame.classList.toggle('dNone')
+   flame.classList.toggle('bounceIn')
+   flame.classList.toggle('fadeIn')
+   rocket.classList.toggle('fadeOutUpBig')
+
 
 });
 
@@ -20,8 +29,3 @@ function sleep(ms)
 {
    return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-
-buttonFire.addEventListener('click', async e => {
-   
-})

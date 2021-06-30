@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block body %}
-    <div class="row ">
+    <div class="row space-background">
         <div class=" col-2 ">
             <div class="rocketContainer rocket  d-flex flex-column " id="rocket">
                 <img src="{{ asset('build/rocket/HeadRocket.png') }}" width="150px" alt="pas trouve">
@@ -34,6 +34,7 @@
                     </div>
                 {% endfor %}
                 <img src="{{ asset('build/rocket/tailRocket.png') }}" width="150px"  alt="pas trouve">
+                <img src="{{ asset('build/flame.png') }}" class="flame dNone img-fluid" id="rocketFlame">
             </div>
         </div>
         <div class="col-3 d-flex align-items-center">
