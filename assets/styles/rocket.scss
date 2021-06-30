@@ -36,8 +36,17 @@
   top: 75px;
   right: -50px;
   transform: rotate(-90deg);
-
 }
+.offset{
+  background-color: black;
+  width: 100%;
+heigth:200px;
+}
+
+
+
+
+
 
 .fadeIn {
   -webkit-animation-name: fadeIn;
@@ -134,3 +143,4 @@
 .dNone{
   display: none;
 }
+

@@ -1,19 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <img src="{{ asset('build/Fiverlogo.png') }}" class="logo-title" alt="">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ path('home') }}">Home</a>
+                    <a class="nav-link active title-nav" aria-current="page" href="{{ path('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ path('rocket_new') }}">Add a Rocket</a>
+                    <a class="nav-link active title-nav" aria-current="page" href="{{ path('rocket_new') }}">Add a Rocket</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ path('machine') }}">Machine</a>
+                    <a class="nav-link active title-nav" aria-current="page" href="{{ path('machine') }}">Machine</a>
                 </li>
 
                 {#<li class="nav-item">
@@ -21,22 +21,43 @@
                 </li>#}
                 {% if app.user %}
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ path('app_logout') }}">Logout</a>
+                        <a class="nav-link active  title-nav" aria-current="page" href="{{ path('app_logout') }}">Logout</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ path('app_login') }}">Login</a>
+                        <a class="nav-link active title-nav" aria-current="page" href="{{ path('app_login') }}">Login</a>
                     </li>
                 {% endif %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Check that !
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{{ path('cocktail') }}">COCKTAIL !</a></li>
-                        <li><a class="dropdown-item" href="{{ path('advice') }}">TAKE an ADVICE !</a></li>
-                    </ul>
-                </li>
+                {% if app.user %}
+                    {% if app.user.email != 'AlexisRoche@gmail.com' %}
+                        <li class="nav-item">
+                            <button class="button-notif" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img class="bell-notif nav-link" src="{{ asset('build/bell.png') }}" alt="">
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Well played {{ app.user.firstname }} ! </h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            You have been added to the Rocket Project : Project Website of mr Chatelain<br>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="{{ path('accept') }}"><button type="button" class="btn button-fiverr">Accept to Join the Rocket !</button></a>
+                                            <a href="{{ path('refus') }}"><button type="button" class="btn btn-danger">Refuse the Invitation</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                    {% endif %}
+                {% endif %}
             </ul>
         </div>
     </div>
