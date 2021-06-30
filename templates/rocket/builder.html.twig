@@ -5,36 +5,16 @@
 {% block javascripts %}
     {{ parent() }}
     {{ encore_entry_script_tags('linkModules') }}
+    {{ encore_entry_script_tags('rocketBuilder') }}
 {% endblock %}
 
 {% block body %}
-
-
-{#<div class="modules-block d-flex align-items-center">#}
-{#    <div class="left-module" style="height: 300px;width: 0px;background-color: #0d5e42"></div>#}
-{#    <div style="height: 300px;width: 500px;"></div>#}
-{#    <div class="d-flex flex-column">#}
-{#        {% for i in 1..4 %}#}
-{#            <div class="d-flex link-block">#}
-{#                <div class="d-flex flex-column">#}
-{#                    <div class="link-up" data-isLightening="{{ i }}"></div>#}
-{#                    <div class="link-down" data-isLightening="{{ i }}"></div>#}
-{#                </div>#}
-{#                <div class="right-module" data-isLightening="{{ i }}" style="height: 200px;width: 200px;background-color: aquamarine"></div>#}
-{#            </div>#}
-{#        {% endfor %}#}
-{#    </div>#}
-{#</div>#}
-
-
-
-{#{{ dump(app.user.friends) }}#}
 <div class="row m-2 ">
     <div class="col col-2 ">
         <div class="rocketContainer d-flex flex-column ">
             <img src="{{ asset('build/rocket/HeadRocket.png') }}" width="150px" alt="pas trouve">
                 <div class="module-container">
-                        <img  id="test{{ random(2) }}" class="passenger-photo" src="{{ asset('build/' ~ app.user.photo ) }}" alt="">
+                        <img   class="test{{ random(2) }} passenger-photo" src="{{ asset('build/' ~ app.user.photo ) }}" alt="">
                         <img  src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
                     <div class="delete" style="color:red">X </div>
                     <div class="d-flex flex-column dot-container">
@@ -46,8 +26,8 @@
                 </div>
             {% for skill in rocket.skills|slice(1,rocket.skills|length) %}
                 <div class="module-container">
-                    <img  id="test{{ random(2) }}" class="passenger-photo" src="{{ asset('build/' ~ app.user.photo ) }}" alt="">
-                    <img  src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
+                    <img  class = "d-none test{{ random(2) }} passenger-photo" id="chosen-{{ loop.index  }}"  src="{{ asset('build/' ~ chosen[loop.index -1].photo ) }}" alt="">
+                    <img   class="module" src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve" data-link="skill-{{ loop.index }}">
                     <div class="delete" style="color:red">X </div>
                     <div class="d-flex flex-column dot-container">
                         <span class="dot {{ (skill.status == 0) ? "dot-" ~ skill.status: ""}}"></span>
@@ -61,13 +41,13 @@
         </div>
     </div>
 {#    dev1 #}
-    <div class="col col-5 dev d-none">
+    <div class="col col-5  section d-none" id="skill-1">
         <div class="offset" style="height: 100px"></div>
         <div class="modules-block d-flex align-items-center">
             <div class="left-module" style="height: 200px;width: 0px;background-color: #0d5e42"></div>
             <div style="height: 300px;width: 500px;"></div>
             <div class="d-flex flex-column">
-                {% for friend in dev1 |slice(0,3) %}
+                {% for friend in dev1 |slice(0,4) %}
                     <div class="d-flex link-block">
                         <div class="d-flex flex-column">
                             <div class="link-up" data-isLightening="{{ loop.index }}"></div>
@@ -100,7 +80,7 @@
         </div>
     </div>
 {#    Marketing1#}
-    <div class="col col-5 market d-none">
+    <div class="col col-5  section d-none" id="skill-2">
         <div class="offset" style="height: 250px"></div>
         <div class="modules-block d-flex align-items-center">
             <div class="left-module" style="height: 200px;width: 0px;background-color: #0d5e42"></div>
@@ -139,7 +119,7 @@
         </div>
     </div>
 {#    SEO#}
-    <div class="col col-5 seo">
+    <div class="col col-5 d-none section" id="skill-3">
         <div class="offset" style="height: 550px"></div>
         <div class="modules-block d-flex align-items-center">
             <div class="left-module" style="height: 200px;width: 0px;background-color: #0d5e42"></div>
