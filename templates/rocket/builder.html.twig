@@ -14,7 +14,7 @@
 
 
 
-<div class="row m-2 space-background">
+<div class="row m-2">
     <div class="col col-2 ">
         <div class="rocketContainer d-flex flex-column ">
             <img src="{{ asset('build/rocket/HeadRocket.png') }}" width="150px" alt="pas trouve">
@@ -27,7 +27,8 @@
                         <span class= "dot " ></span>
                         <span class= "dot dot-2" ></span>
                     </div>
-                    <div class="module-label">{{ rocket.skills[0].name }}</div>
+                    <div class="module-label">{{ rocket.skills[0].name }} </div>
+
                 </div>
             {% for skill in rocket.skills|slice(1,rocket.skills|length) %}
                 <div class="module-container">
@@ -261,7 +262,10 @@
                                 </div>
                             </div>
                 {% endfor %}
+
                         </div>
+                    <br>
+                    <a href="{{ path('machine') }}" class="random btn btn-danger">RANDOM</a>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -295,6 +299,8 @@
                                 </div>
                             </div>
                         </div>
+                    <br>
+                    <a href="{{ path('machine') }}" class="random btn btn-danger">RANDOM</a>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -330,6 +336,8 @@
                             </div>
                         {% endfor %}
                     </div>
+                    <br>
+                    <a href="{{ path('machine') }}" class="random btn btn-danger">RANDOM</a>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
