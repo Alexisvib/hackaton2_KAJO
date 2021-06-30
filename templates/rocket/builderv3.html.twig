@@ -57,7 +57,7 @@
                 <img src="{{ asset('build/rocket/tailRocket.png') }}" width="150px"  alt="pas trouve">
             </div>
         </div>
-        <button class="btn btn-success">Launch the Rocket</button>
+        <a href="{{ path("rocket_fire", {id: rocket.id}) }}" class="btn btn-success">Launch the Rocket</a>
         {#    dev1 #}
         <div class="col col-5  section d-none" id="skill-1">
             <div class="offset" style="height: 100px"></div>
