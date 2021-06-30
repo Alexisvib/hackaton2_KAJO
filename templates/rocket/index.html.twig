@@ -3,10 +3,10 @@
 {% block title %}Create a Rocket ! {% endblock %}
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block body %}
-{{ form_start(form) }}
-{{ form_row(form.title) }}
-{{ form_row(form.description) }}
-{{ form_row(form.skills) }}
+    {{ form_start(form) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.skills) }}
 <input type='submit' class="btn btn-dark" value='Add a Project'>
 {{ form_end(form) }}
 {% endblock %}

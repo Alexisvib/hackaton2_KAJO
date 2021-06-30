@@ -1,0 +1,172 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Build your team work !{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('linkModules') }}
+    {{ encore_entry_script_tags('rocketBuilder') }}
+{% endblock %}
+
+{% block body %}
+
+
+
+
+
+<div class="row m-2 ">
+    <div class="col col-2 ">
+        <div class="rocketContainer d-flex flex-column ">
+            <img src="{{ asset('build/rocket/HeadRocket.png') }}" width="150px" alt="pas trouve">
+                <div class="module-container">
+                        <img   class="test{{ random(2) }} passenger-photo" src="{{ asset('build/' ~ app.user.photo ) }}" alt="">
+                        <img  src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
+                    <div class="delete" style="color:red">X </div>
+                    <div class="d-flex flex-column dot-container">
+                        <span class= "dot" ></span>
+                        <span class= "dot" ></span>
+                        <span class= "dot dot-2" ></span>
+                    </div>
+                    <div class="module-label">{{ rocket.skills[0].name }}</div>
+                </div>
+            {% for skill in rocket.skills|slice(1,rocket.skills|length) %}
+                <div class="module-container">
+                    <img  class = "d-none test{{ random(2) }} passenger-photo" id="chosen-{{ loop.index  }}"  src="{{ asset('build/' ~ chosen[loop.index -1].photo ) }}" alt="">
+                    <img   class="module" src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve" data-link="skill-{{ loop.index }}">
+                    <div class="delete" style="color:red">X </div>
+                    <div class="d-flex flex-column dot-container">
+                        <span class="dot {{ (skill.status == 0) ? "dot-" ~ skill.status: ""}}"></span>
+                        <span class="dot {{ (skill.status == 1) ? "dot-" ~ skill.status: ""}}"></span>
+                        <span class="dot {{ (skill.status == 2) ? "dot-" ~ skill.status: ""}}"></span>
+                    </div>
+                    <div class="module-label">{{ rocket.skills[loop.index].name }}</div>
+                </div>
+            {% endfor %}
+            <img src="{{ asset('build/rocket/tailRocket.png') }}" width="150px"  alt="pas trouve">
+        </div>
+    </div>
+{#    dev1 #}
+    <div class="col col-10  section d-none" id="skill-1">
+        <div class="offset" style="height: 100px"></div>
+        <div class="modules-block d-flex align-items-center">
+            <div class="left-module" style="height: 200px;width: 0px;background-color: #0d5e42"></div>
+            <div style="height: 300px;width: 500px;"></div>
+            <div class="d-flex flex-column">
+                {% for friend in dev1 |slice(0,4) %}
+                    <div class="d-flex link-block">
+                        <div class="d-flex flex-column">
+                            <div class="link-up" data-isLightening="{{ loop.index }}" data-module="dev1" ></div>
+                            <div class="link-down" data-isLightening="{{ loop.index }}" data-module="dev1" ></div>
+                        </div>
+                        <div class="right-module d-flex" data-isLightening="{{ loop.index }}"  data-module="dev1" style="height: 200px;width: 200px;">
+                            <div style="position: relative">
+                            <img src="{{ asset('build/'~friend.photo) }}" width="100px" alt="">
+                                {% if  devFriends[loop.index -1] %}
+                                    <span style="position: absolute; right:0px; bottom: 70px" class="badge bg-success">{{ devFriends[loop.index -1] }}</span>
+                                {% endif %}
+                            <p class="d-flex">
+                                {% if friend.onFiverr %}
+                                    <img class="fiverrImage" src="{{ asset('build/Logos/fiverr.png') }}" width="50px" alt="">
+                                {% endif %}
+                                {% if friend.onLinkedin %}
+                                    <img class="linkImage" src="{{ asset('build/Logos/linkedin.png') }}" width="50px" alt="">
+                                {% endif %}
+                            </p>
+                            </div>
+                            <div>
+                                <p>{{ friend.firstname }} {{ friend.lastname }} </p>
+
+                                {{ friend.skills[0].name }}
+                                <p>
+                                    {% if  devFriends[loop.index -1] ==0 %}
+                                        <a class="btn btn-primary" href="">Invite</a>
+                                    {% else  %}
+                                        <button class="btn btn-success">Network</button>
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{#    dev2#}
+
+{#    Marketing1#}
+    <div class="col col-5  section d-none" id="skill-2">
+        <div class="offset" style="height: 250px"></div>
+        <div class="modules-block d-flex align-items-center">
+            <div class="left-module" style="height: 200px;width: 0px;background-color: #0d5e42"></div>
+            <div style="height: 300px;width: 500px;"></div>
+            <div class="d-flex flex-column">
+                {% for friend in market1 |slice(0,4) %}
+                    <div class="d-flex link-block">
+                        <div class="d-flex flex-column">
+                            <div class="link-up" data-isLightening="{{ loop.index }}" data-module="marketing1" ></div>
+                            <div class="link-down" data-isLightening="{{ loop.index }}" data-module="marketing1" ></div>
+                        </div>
+                        <div class="right-module d-flex" data-isLightening="{{ loop.index }}"  data-module="marketing1" style="height: 200px;width: 200px;">
+                            <div>
+                                <img src="{{ asset('build/'~friend.photo) }}" width="100px" alt="">
+                                <p class="d-flex">
+                                    {% if friend.onFiverr %}
+                                        <img class="fiverrImage" src="{{ asset('build/Logos/fiverr.png') }}" width="50px" alt="">
+                                    {% endif %}
+                                    {% if friend.onLinkedin %}
+                                        <img class="linkImage" src="{{ asset('build/Logos/linkedin.png') }}" width="50px" alt="">
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <div>
+                                <p>{{ friend.firstname }} {{ friend.lastname }} {{ marketFriends[loop.index -1] }}</p>
+
+                                {{ friend.skills[0].name }}
+                                <p>
+                                    <a class="btn btn-primary" href="">Inviter</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{#    SEO#}
+    <div class="col col-5 d-none section" id="skill-3">
+        <div class="offset" style="height: 550px"></div>
+        <div class="modules-block d-flex align-items-center">
+            <div class="left-module" style="height: 200px;width: 0px;background-color: #0d5e42"></div>
+            <div style="height: 300px;width: 500px;"></div>
+            <div class="d-flex flex-column">
+                {% for friend in SEO1 |slice(0,3) %}
+                    <div class="d-flex link-block">
+                        <div class="right-module d-flex" data-isLightening="{{ loop.index }}"  data-module="seo1" data-lastMod="seo" style="height: 200px;width: 200px;">
+                            <div>
+                                <img src="{{ asset('build/'~friend.photo) }}" width="100px" alt="">
+                                <p class="d-flex">
+                                    {% if friend.onFiverr %}
+                                        <img class="fiverrImage" src="{{ asset('build/Logos/fiverr.png') }}" width="50px" alt="">
+                                    {% endif %}
+                                    {% if friend.onLinkedin %}
+                                        <img class="linkImage" src="{{ asset('build/Logos/linkedin.png') }}" width="50px" alt="">
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <div>
+                                <p>{{ friend.firstname }} {{ friend.lastname }} {{ SEOFriends[loop.index -1] }}</p>
+
+                                {{ friend.skills[0].name }}
+                                <p>
+                                    <a class="btn btn-primary" href="">Inviter</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
