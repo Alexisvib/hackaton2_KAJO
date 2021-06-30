@@ -14,7 +14,7 @@
 
 
 
-<div class="row m-2 space-background">
+<div class="row m-2">
     <div class="col col-2 ">
         <div class="rocketContainer d-flex flex-column ">
             <img src="{{ asset('build/rocket/HeadRocket.png') }}" width="150px" alt="pas trouve">
@@ -23,11 +23,12 @@
                         <img  src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve">
                     <div class="delete" style="color:red">X </div>
                     <div class="d-flex flex-column dot-container">
-                        <span class= "dot" ></span>
-                        <span class= "dot" ></span>
+                        <span class= "dot " ></span>
+                        <span class= "dot " ></span>
                         <span class= "dot dot-2" ></span>
                     </div>
-                    <div class="module-label">{{ rocket.skills[0].name }}</div>
+                    <div class="module-label">{{ rocket.skills[0].name }} </div>
+
                 </div>
             {% for skill in rocket.skills|slice(1,rocket.skills|length) %}
                 <div class="module-container">
@@ -35,9 +36,9 @@
                     <img   class="module" src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve" data-link="skill-{{ loop.index }}">
                     <div class="delete" style="color:red">X </div>
                     <div class="d-flex flex-column dot-container">
-                        <span class="dot {{ (skill.status == 0) ? "dot-" ~ skill.status: ""}}"></span>
-                        <span class="dot {{ (skill.status == 1) ? "dot-" ~ skill.status: ""}}"></span>
-                        <span class="dot {{ (skill.status == 2) ? "dot-" ~ skill.status: ""}}"></span>
+                        <span id="red-{{ loop.index }}" class="dot {{ (skill.status == 0) ? "dot-" ~ skill.status: ""}}"></span>
+                        <span id="yellow-{{ loop.index }}" class="dot {{ (skill.status == 1) ? "dot-" ~ skill.status: ""}}"></span>
+                        <span id="green-{{ loop.index }}" class="dot {{ (skill.status == 2) ? "dot-" ~ skill.status: ""}}"></span>
                     </div>
                     <div class="module-label">{{ rocket.skills[loop.index].name }}</div>
                 </div>
@@ -109,8 +110,11 @@
                             <div class="link-down" data-isLightening="{{ loop.index }}" data-module="marketing1" ></div>
                         </div>
                         <div class="right-module d-flex" data-isLightening="{{ loop.index }}"  data-module="marketing1" style="height: 200px;width: 200px;">
-                            <div>
+                            <div style="position:relative">
                                 <img src="{{ asset('build/'~friend.photo) }}" width="100px" alt="">
+                                {% if  marketFriends[loop.index -1] %}
+                                    <span style="position: absolute; right:0px; bottom: 70px" class="badge bg-success">{{ marketFriends[loop.index -1] }}</span>
+                                {% endif %}
                                 <p class="d-flex">
                                     {% if friend.onFiverr %}
                                         <img class="fiverrImage" src="{{ asset('build/Logos/fiverr.png') }}" width="50px" alt="">
@@ -121,11 +125,17 @@
                                 </p>
                             </div>
                             <div>
-                                <p>{{ friend.firstname }} {{ friend.lastname }} {{ marketFriends[loop.index -1] }}</p>
+                                <p>{{ friend.firstname }} {{ friend.lastname }} </p>
 
                                 {{ friend.skills[0].name }}
                                 <p>
-                                    <a class="btn btn-primary" href="">Inviter</a>
+                                {% if  marketFriends[loop.index -1] ==0 %}
+                                <a class="btn btn-primary" href="">Invite</a>
+                               {% else  %}
+                                   <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#marketModal">
+                                       Network
+                                   </button>
+                                   {% endif %}
                                 </p>
                             </div>
                         </div>
@@ -136,17 +146,24 @@
         </div>
     </div>
 {#    SEO#}
-    <div class="col col-5 d-none section" id="skill-3">
-        <div class="offset" style="height: 550px"></div>
+    <div class="col col-5  section d-none" id="skill-3">
+        <div class="offset" style="height: 250px"></div>
         <div class="modules-block d-flex align-items-center">
             <div class="left-module" style="height: 200px;width: 0px;background-color: #0d5e42"></div>
             <div style="height: 300px;width: 500px;"></div>
             <div class="d-flex flex-column">
-                {% for friend in SEO1 |slice(0,3) %}
+                {% for friend in SEO1 |slice(0,4) %}
                     <div class="d-flex link-block">
-                        <div class="right-module d-flex" data-isLightening="{{ loop.index }}"  data-module="seo1" data-lastMod="seo" style="height: 200px;width: 200px;">
-                            <div>
+                        <div class="d-flex flex-column">
+                            <div class="link-up" data-isLightening="{{ loop.index }}" data-module="marketing1" ></div>
+                            <div class="link-down" data-isLightening="{{ loop.index }}" data-module="marketing1" ></div>
+                        </div>
+                        <div class="right-module d-flex" data-isLightening="{{ loop.index }}"  data-module="marketing1" style="height: 200px;width: 200px;">
+                            <div style="position:relative">
                                 <img src="{{ asset('build/'~friend.photo) }}" width="100px" alt="">
+                                {% if  SEOFriends[loop.index -1] %}
+                                    <span style="position: absolute; right:0px; bottom: 70px" class="badge bg-success">{{ SEOFriends[loop.index -1] }}</span>
+                                {% endif %}
                                 <p class="d-flex">
                                     {% if friend.onFiverr %}
                                         <img class="fiverrImage" src="{{ asset('build/Logos/fiverr.png') }}" width="50px" alt="">
@@ -157,25 +174,66 @@
                                 </p>
                             </div>
                             <div>
-                                <p>{{ friend.firstname }} {{ friend.lastname }} {{ SEOFriends[loop.index -1] }}</p>
-
+                                <p>{{ friend.firstname }} {{ friend.lastname }} </p>
 
                                 {{ friend.skills[0].name }}
                                 <p>
-                                    <a class="btn btn-primary" href="">Inviter</a>
+                                {% if  SEOFriends[loop.index -1] ==0 %}
+                                <a class="btn btn-primary" href="">Invite</a>
+                               {% else  %}
+                                   <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#SEOModal">
+                                       Network
+                                   </button>
+                                   {% endif %}
                                 </p>
                             </div>
                         </div>
                     </div>
+
                 {% endfor %}
             </div>
         </div>
     </div>
+{#    SEO#}
+{#    <div class="col col-5 d-none section" id="skill-3">#}
+{#        <div class="offset" style="height: 550px"></div>#}
+{#        <div class="modules-block d-flex align-items-center">#}
+{#            <div class="left-module" style="height: 200px;width: 0px;background-color: #0d5e42"></div>#}
+{#            <div style="height: 300px;width: 500px;"></div>#}
+{#            <div class="d-flex flex-column">#}
+{#                {% for friend in SEO1 |slice(0,3) %}#}
+{#                    <div class="d-flex link-block">#}
+{#                        <div class="right-module d-flex" data-isLightening="{{ loop.index }}"  data-module="seo1" data-lastMod="seo" style="height: 200px;width: 200px;">#}
+{#                            <div>#}
+{#                                <img src="{{ asset('build/'~friend.photo) }}" width="100px" alt="">#}
+{#                                #}
+{#                                <p class="d-flex">#}
+{#                                    {% if friend.onFiverr %}#}
+{#                                        <img class="fiverrImage" src="{{ asset('build/Logos/fiverr.png') }}" width="50px" alt="">#}
+{#                                    {% endif %}#}
+{#                                    {% if friend.onLinkedin %}#}
+{#                                        <img class="linkImage" src="{{ asset('build/Logos/linkedin.png') }}" width="50px" alt="">#}
+{#                                    {% endif %}#}
+{#                                </p>#}
+{#                            </div>#}
+{#                            <div>#}
+{#                                <p>{{ friend.firstname }} {{ friend.lastname }} {{ SEOFriends[loop.index -1] }}</p>#}
+
+
+{#                                {{ friend.skills[0].name }}#}
+{#                                <p>#}
+{#                                    <a class="btn btn-primary" href="">Inviter</a>#}
+{#                                </p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
     {#    dev2#}
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDev">
-        Launch demo modal
-    </button>
+
 
     <!-- Modal -->
     <div class="modal fade" id="modalDev" tabindex="-1" aria-labelledby="modalDev" aria-hidden="true">
@@ -198,13 +256,88 @@
                                         <p>{{ dev2[i].firstname }}</p>
                                         <p >{{ dev2[i].lastname }}</p>
                                         <p>{{ dev2[i].skills[0].name }}</p>
-                                        <a class="btn btn-primary" href="">Invite</a>
+                                        <a class="btn btn-primary" id="devPicture-{{ i }}" href="">Invite</a>
                                     </div>
 
                                 </div>
                             </div>
                 {% endfor %}
+
                         </div>
+                    <br>
+                    <a href="{{ path('machine') }}" class="random btn btn-danger">RANDOM</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="marketModal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="marketModal">Invitation Market</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="d-flex">
+                                    <div class="d-flex flex-column">
+                                        <img src="{{ asset('build/'~market2[0].photo) }}" width="100px" alt="pastrou">
+                                        <img class="fiverrImage" src="{{ asset('build/Logos/fiverr.png') }}" width="50px" alt="">
+                                    </div>
+                                    <div class="d-flex flex-column justify-content-start">
+                                        <p>{{ market2[0].firstname }}</p>
+                                        <p >{{ market2[0].lastname }}</p>
+                                        <p>{{ market2[0].skills[0].name }}</p>
+                                        <a class="btn btn-primary" id="marketPicture" href="">Invite</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    <br>
+                    <a href="{{ path('machine') }}" class="random btn btn-danger">RANDOM</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{#    SEO MODAL#}
+    <div class="modal fade" id="SEOModal" tabindex="-1" aria-labelledby="SEOModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="SEOModal">Invitation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        {% for i in 0..1  %}
+                            <div class="col-5">
+                                <div class="d-flex">
+                                    <div class="d-flex flex-column">
+                                        <img src="{{ asset('build/'~SEO2[i].photo) }}" width="100px" alt="pastrou">
+                                        <img class="fiverrImage" src="{{ asset('build/Logos/fiverr.png') }}" width="50px" alt="">
+                                    </div>
+                                    <div class="d-flex flex-column justify-content-start">
+                                        <p>{{ SEO2[i].firstname }}</p>
+                                        <p >{{ SEO2[i].lastname }}</p>
+                                        <p>{{ SEO2[i].skills[0].name }}</p>
+                                        <a class="btn btn-primary" id="SEOPicture-{{ i }}"  href="">Invite</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <br>
+                    <a href="{{ path('machine') }}" class="random btn btn-danger">RANDOM</a>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

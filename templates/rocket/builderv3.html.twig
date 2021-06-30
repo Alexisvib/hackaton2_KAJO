@@ -37,26 +37,27 @@
                         <div class="delete" style="color:red">X </div>
                         <div class="d-flex flex-column dot-container">
                             <span id="red-3" class="dot "></span>
-                            <span id="yellow-3" class="dot dot-1" ></span>
-                            <span id="green-3" class="dot " ></span>
+                            <span id="yellow-3" class="dot " ></span>
+                            <span id="green-3" class="dot dot-2 " ></span>
                         </div>
                         <div class="module-label">{{ rocket.skills[loop.index].name }}</div>
                     </div>
                 {% endfor %}
-                    <div class="module-container">
-                        <img  class = "d-none test{{ random(2) }} passenger-photo" id="chosen-3"  src="{{ asset('build/' ~ chosen[2].photo ) }}" alt="">
-                        <img   class="module" src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve" data-link="skill-3">
-                        <div class="delete" style="color:red">X </div>
-                        <div class="d-flex flex-column dot-container">
-                            <span id="red-3" class="dot dot-0"></span>
-                            <span id="yellow-3" class="dot" ></span>
-                            <span id="green-3" class="dot " ></span>
-                        </div>
-                        <div class="module-label">{{ rocket.skills[3].name }}</div>
+                <div class="module-container">
+                    <img  class = "test{{ random(2) }} passenger-photo" id="chosen-3"  src="{{ asset('build/' ~ chosen[2].photo ) }}" alt="">
+                    <img   class="module" src="{{ asset('build/rocket/module.png') }}" width="150px" alt="pas trouve" data-link="skill-3">
+                    <div class="delete" style="color:red">X </div>
+                    <div class="d-flex flex-column dot-container">
+                        <span id="red-3" class="dot "></span>
+                        <span id="yellow-3" class="dot" ></span>
+                        <span id="green-3" class="dot  dot-2 " ></span>
                     </div>
+                    <div class="module-label">{{ rocket.skills[3].name }}</div>
+                </div>
                 <img src="{{ asset('build/rocket/tailRocket.png') }}" width="150px"  alt="pas trouve">
             </div>
         </div>
+        <button class="btn btn-success">Launch the Rocket</button>
         {#    dev1 #}
         <div class="col col-5  section d-none" id="skill-1">
             <div class="offset" style="height: 100px"></div>
